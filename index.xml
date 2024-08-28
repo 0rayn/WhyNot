@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WhyNot a Blog</title>
+    <link>https://WhyNot.github.io/</link>
+    <description>Recent content on WhyNot a Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Aug 2024 14:55:23 +0100</lastBuildDate><atom:link href="https://WhyNot.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>_Start</title>
+      <link>https://WhyNot.github.io/posts/_start/</link>
+      <pubDate>Wed, 28 Aug 2024 14:55:23 +0100</pubDate>
+      
+      <guid>https://WhyNot.github.io/posts/_start/</guid>
+      <description>Hello Hello Hello</description>
+    </item>
+    
+  </channel>
+</rss>
