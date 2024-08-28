@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on WhyNot a Blog</title>
+    <title>Tags on GetToKnow</title>
     <link>https://ayg0.github.io/WhyNot/tags/</link>
-    <description>Recent content in Tags on WhyNot a Blog</description>
+    <description>Recent content in Tags on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://ayg0.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://ayg0.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
