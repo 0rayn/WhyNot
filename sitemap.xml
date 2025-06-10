@@ -3,16 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://0rayn.github.io/WhyNot/posts/</loc>
-    <lastmod>2025-06-10T17:41:50+01:00</lastmod>
+    <lastmod>2025-06-10T19:49:52+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/</loc>
+    <lastmod>2025-06-10T19:49:52+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/test/</loc>
+    <lastmod>2025-06-10T19:49:52+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/posts/test2/</loc>
+    <lastmod>2025-06-10T19:49:52+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/</loc>
+    <lastmod>2025-06-10T19:49:52+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/test/</loc>
     <lastmod>2025-06-10T17:41:50+01:00</lastmod>
   </url><url>
-    <loc>https://0rayn.github.io/WhyNot/</loc>
-    <lastmod>2025-06-10T17:41:50+01:00</lastmod>
+    <loc>https://0rayn.github.io/WhyNot/search/</loc>
+    <lastmod>2025-03-24T23:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://0rayn.github.io/WhyNot/categories/</loc>
+    <loc>https://0rayn.github.io/WhyNot/series/</loc>
   </url><url>
-    <loc>https://0rayn.github.io/WhyNot/tags/</loc>
+    <loc>https://0rayn.github.io/WhyNot/topics/</loc>
   </url>
 </urlset>

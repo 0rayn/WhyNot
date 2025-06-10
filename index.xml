@@ -6,14 +6,28 @@
     <description>Recent content on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 10 Jun 2025 17:41:50 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jun 2025 19:49:52 +0100</lastBuildDate>
     <atom:link href="https://0rayn.github.io/WhyNot/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
+      <title>test2</title>
+      <link>https://0rayn.github.io/WhyNot/posts/test2/</link>
+      <pubDate>Tue, 10 Jun 2025 19:49:52 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/test2/</guid>
+      <description>&lt;p&gt;waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa hi&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>test</title>
       <link>https://0rayn.github.io/WhyNot/posts/test/</link>
       <pubDate>Tue, 10 Jun 2025 17:41:50 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/posts/test/</guid>
-      <description></description>
+      <description>&lt;p&gt;fa;fjawfw&#xA;asfsaf&#xA;sfksfas&#xA;fsfsf&#xA;as&#xA;Hello&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>https://0rayn.github.io/WhyNot/search/</link>
+      <pubDate>Mon, 24 Mar 2025 23:00:00 -0300</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/search/</guid>
+      <description>&lt;h1 id=&#34;search&#34;&gt;Search&lt;/h1&gt;&#xA;&lt;p class=&#34;hidden&#34;&gt;It&amp;#39;s necessary to enable Javascript&lt;/p&gt;&#xA;&lt;p class=&#34;search-loading hidden&#34;&gt;Loading...&lt;/p&gt;&#xA;&#xA;&lt;form id=&#34;search-form&#34; class=&#34;search-form&#34; action=&#34;#&#34; method=&#34;post&#34; accept-charset=&#34;UTF-8&#34; role=&#34;search&#34;&gt;&#xA;  &lt;div class=&#34;search-bar&#34;&gt;&#xA;    &lt;label for=&#34;query&#34; class=&#34;hidden&#34;&gt;&lt;/label&gt;&#xA;    &lt;input id=&#34;query&#34; class=&#34;search-text&#34; type=&#34;text&#34; placeholder=&#34;Search...&#34;/&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/form&gt;&#xA;&#xA;&lt;div class=&#34;search-results&#34;&gt;&lt;/div&gt;&#xA;&#xA;&lt;template&gt;&#xA;  &lt;article class=&#34;search-result list-view&#34;&gt;&#xA;    &lt;header&gt;&#xA;      &lt;h2 class=&#34;title&#34;&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&#xA;      &lt;div class=&#34;submitted&#34;&gt;&#xA;        &lt;time class=&#34;created-date&#34;&gt;&lt;/time&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/header&gt;&#xA;    &lt;p class=&#34;content&#34;&gt;&lt;/p&gt;&#xA;  &lt;/article&gt;&#xA;&lt;/template&gt;</description>
     </item>
   </channel>
 </rss>
