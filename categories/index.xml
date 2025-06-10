@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on WhyNot a Blog</title>
-    <link>https://ayg0.github.io/WhyNot/categories/</link>
-    <description>Recent content in Categories on WhyNot a Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://ayg0.github.io/WhyNot/categories/index.xml" rel="self" type="application/rss+xml" />
+    <title>Categories on WhyNot</title>
+    <link>https://0rayn.github.io/categories/</link>
+    <description>Recent content in Categories on WhyNot</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <atom:link href="https://0rayn.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on WhyNot a Blog</title>
-    <link>https://ayg0.github.io/WhyNot/tags/</link>
-    <description>Recent content in Tags on WhyNot a Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 28 Aug 2024 14:55:23 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OSDEV</title>
-      <link>https://ayg0.github.io/WhyNot/tags/osdev/</link>
-      <pubDate>Wed, 28 Aug 2024 14:55:23 +0100</pubDate>
-      
-      <guid>https://ayg0.github.io/WhyNot/tags/osdev/</guid>
-      <description></description>
-    </item>
-    
+    <title>Tags on WhyNot</title>
+    <link>https://0rayn.github.io/tags/</link>
+    <description>Recent content in Tags on WhyNot</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <atom:link href="https://0rayn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
