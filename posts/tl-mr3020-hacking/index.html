@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
-<head><script src="/WhyNot/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=WhyNot/livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TL-MR3020 Hacking | WhyNot</title>
-<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" /><meta property="og:url" content="http://localhost:1313/WhyNot/posts/tl-mr3020-hacking/">
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" /><meta property="og:url" content="https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/">
   <meta property="og:site_name" content="WhyNot">
   <meta property="og:title" content="TL-MR3020 Hacking">
   <meta property="og:description" content="I - What’s the TL-MR3020? The TL-MR3020 is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ? It’s based on the Atheros AR9331 SoC, which includes: A 400 MHz MIPS processor 4 MB flash, 32 MB RAM USB 2.0 host support Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about. II - What’s openWrt: OpenWrt is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.
@@ -23,10 +23,10 @@
   <meta name="twitter:description" content="I - What’s the TL-MR3020? The TL-MR3020 is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ? It’s based on the Atheros AR9331 SoC, which includes: A 400 MHz MIPS processor 4 MB flash, 32 MB RAM USB 2.0 host support Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about. II - What’s openWrt: OpenWrt is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.
 -&gt; Here’s the official site: https://openwrt.org/">
 
-    <link rel="stylesheet" href="/WhyNot/css/root.css">
-    <link rel="stylesheet" href="/WhyNot/css/bundle.css">
+      <link rel="stylesheet" href="/WhyNot/css/root.min.0e732b812b9751962e01a7c4798a1211cd5f8ac8abec7f99793fe306989e459f.css" integrity="sha256-DnMrgSuXUZYuAafEeYoSEc1fisir7H&#43;ZeT/jBpieRZ8=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/WhyNot/css/bundle.min.f27a56e991be000b70f16c1055f85c5c8a52543dd12df8dc254055463a69e878.css" integrity="sha256-8npW6ZG&#43;AAtw8WwQVfhcXIpSVD3RLfjcJUBVRjpp6Hg=" crossorigin="anonymous">
 
-      <script src="/WhyNot/js/bundle.js"></script><script defer src="/WhyNot/js/search/flexsearch.compact.64594b125f7b78bdf4fa8316955922bbebb1cd6baef3f16654bfca20309f18f8.js" integrity="sha256-ZFlLEl97eL30&#43;oMWlVkiu&#43;uxzWuu8/FmVL/KIDCfGPg="></script>
+      <script src="/WhyNot/js/bundle.995e4ec99401021e081ec256bee66154ef7f4e5136809432513b2e6d014b4b1d.js" integrity="sha256-mV5OyZQBAh4IHsJWvuZhVO9/TlE2gJQyUTsubQFLSx0=" crossorigin="anonymous"></script><script defer src="/WhyNot/js/search/flexsearch.compact.64594b125f7b78bdf4fa8316955922bbebb1cd6baef3f16654bfca20309f18f8.js" integrity="sha256-ZFlLEl97eL30&#43;oMWlVkiu&#43;uxzWuu8/FmVL/KIDCfGPg="></script>
 <script defer src="/WhyNot/js/search/search.8f530dd8babcb14f15ab7c8981ac96efc4b306094613be2dfff27d77e3557652.js" integrity="sha256-j1MN2Lq8sU8Vq3yJgayW78SzBglGE74t//J9d&#43;NVdlI="></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
   <div id="container">
     <header id="main-header"><div role="navigation" aria-label="Main">
   <div class="nav-left">
-    <a href="http://localhost:1313/WhyNot/" style="color: inherit;">WhyNot</a>
+    <a href="https://0rayn.github.io/WhyNot/" style="color: inherit;">WhyNot</a>
   </div>
   <div class="nav-right">
     <div style="position:absolute;width:0px;height:0px;">
@@ -93,14 +93,14 @@
         <main id="main-content"><div class="single-header">
 <ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="http://localhost:1313/WhyNot/">
+      <a itemprop="item" href="https://0rayn.github.io/WhyNot/">
         <span itemprop="name">Home</span>
       </a>
       <meta itemprop="position" content='1' />
     </li>
     <span>&nbsp»&nbsp</span>
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="http://localhost:1313/WhyNot/posts/">
+      <a itemprop="item" href="https://0rayn.github.io/WhyNot/posts/">
         <span itemprop="name">Posts</span>
       </a>
       <meta itemprop="position" content='2' />
@@ -108,9 +108,9 @@
     <span>&nbsp»&nbsp</span>
 </ol>
 <h1>TL-MR3020 Hacking</h1><time class="dim" datetime="2025-06-11T12:11:13&#43;01:00">June 11, 2025</time><div class="term-container"><div class="tag">
-        <a href="http://localhost:1313/WhyNot/tags/hardware-hacking/">#hardware-hacking</a>
+        <a href="https://0rayn.github.io/WhyNot/tags/hardware-hacking/">#hardware-hacking</a>
       </div><div class="tag">
-        <a href="http://localhost:1313/WhyNot/tags/low-level/">#low-level</a>
+        <a href="https://0rayn.github.io/WhyNot/tags/low-level/">#low-level</a>
       </div></ol></div>
   <section class="page-section"><h2 id="i---whats-the-tl-mr3020">I - What&rsquo;s the TL-MR3020?</h2>
 <p><img src="/WhyNot/images/tl-mr3020/router.png" alt="TL-MR3020 board"></p>

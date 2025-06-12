@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on WhyNot</title>
-    <link>http://localhost:1313/WhyNot/tags/</link>
+    <link>https://0rayn.github.io/WhyNot/tags/</link>
     <description>Recent content in Tags on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 11 Jun 2025 12:11:13 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rayn.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hardware-Hacking</title>
-      <link>http://localhost:1313/WhyNot/tags/hardware-hacking/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/hardware-hacking/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/hardware-hacking/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/hardware-hacking/</guid>
       <description></description>
     </item>
     <item>
       <title>Low-Level</title>
-      <link>http://localhost:1313/WhyNot/tags/low-level/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/low-level/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/low-level/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/low-level/</guid>
       <description></description>
     </item>
   </channel>
