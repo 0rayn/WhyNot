@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://0rayn.github.io/WhyNot/tags/hardware-hacking/</loc>
+    <loc>https://0rayn.github.io/WhyNot/tags/diy/</loc>
     <lastmod>2025-06-11T12:11:13+01:00</lastmod>
   </url><url>
-    <loc>https://0rayn.github.io/WhyNot/tags/low-level/</loc>
+    <loc>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</loc>
+    <lastmod>2025-06-11T12:11:13+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/networktools/</loc>
+    <lastmod>2025-06-11T12:11:13+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/openwrt/</loc>
     <lastmod>2025-06-11T12:11:13+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/</loc>
     <lastmod>2025-06-11T12:11:13+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/tags/</loc>
+    <lastmod>2025-06-11T12:11:13+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</loc>
     <lastmod>2025-06-11T12:11:13+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/</loc>

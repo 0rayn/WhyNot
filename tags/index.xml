@@ -9,17 +9,38 @@
     <lastBuildDate>Wed, 11 Jun 2025 12:11:13 +0100</lastBuildDate>
     <atom:link href="https://0rayn.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hardware-Hacking</title>
-      <link>https://0rayn.github.io/WhyNot/tags/hardware-hacking/</link>
+      <title>DIY</title>
+      <link>https://0rayn.github.io/WhyNot/tags/diy/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/tags/hardware-hacking/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/diy/</guid>
       <description></description>
     </item>
     <item>
-      <title>Low-Level</title>
-      <link>https://0rayn.github.io/WhyNot/tags/low-level/</link>
+      <title>EmbeddedLinux</title>
+      <link>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/tags/low-level/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NetworkTools</title>
+      <link>https://0rayn.github.io/WhyNot/tags/networktools/</link>
+      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/networktools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenWrt</title>
+      <link>https://0rayn.github.io/WhyNot/tags/openwrt/</link>
+      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/openwrt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TL-MR3020</title>
+      <link>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</link>
+      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</guid>
       <description></description>
     </item>
   </channel>
