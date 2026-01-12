@@ -6,41 +6,76 @@
     <description>Recent content in Tags on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 11 Jun 2025 12:11:13 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 16:28:07 +0100</lastBuildDate>
     <atom:link href="https://0rayn.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DIY</title>
       <link>https://0rayn.github.io/WhyNot/tags/diy/</link>
-      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/tags/diy/</guid>
       <description></description>
     </item>
     <item>
       <title>EmbeddedLinux</title>
       <link>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</link>
-      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</guid>
       <description></description>
     </item>
     <item>
       <title>NetworkTools</title>
       <link>https://0rayn.github.io/WhyNot/tags/networktools/</link>
-      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/tags/networktools/</guid>
       <description></description>
     </item>
     <item>
       <title>OpenWrt</title>
       <link>https://0rayn.github.io/WhyNot/tags/openwrt/</link>
-      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/tags/openwrt/</guid>
       <description></description>
     </item>
     <item>
       <title>TL-MR3020</title>
       <link>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</link>
-      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
+      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>https://0rayn.github.io/WhyNot/tags/hardware/</link>
+      <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Repurposing</title>
+      <link>https://0rayn.github.io/WhyNot/tags/repurposing/</link>
+      <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/repurposing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arm</title>
+      <link>https://0rayn.github.io/WhyNot/tags/arm/</link>
+      <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/arm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docs</title>
+      <link>https://0rayn.github.io/WhyNot/tags/docs/</link>
+      <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/docs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resources</title>
+      <link>https://0rayn.github.io/WhyNot/tags/resources/</link>
+      <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/tags/resources/</guid>
       <description></description>
     </item>
   </channel>
