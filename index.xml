@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WhyNot</title>
-    <link>https://0rayn.github.io/WhyNot/</link>
+    <link>http://localhost:1313/WhyNot/</link>
     <description>Recent content on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 11 Jan 2026 16:28:07 +0100</lastBuildDate>
-    <atom:link href="https://0rayn.github.io/WhyNot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/WhyNot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The 3020 Project</title>
-      <link>https://0rayn.github.io/WhyNot/posts/the-3020-project/</link>
+      <link>http://localhost:1313/WhyNot/posts/the-3020-project/</link>
       <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/posts/the-3020-project/</guid>
+      <guid>http://localhost:1313/WhyNot/posts/the-3020-project/</guid>
       <description></description>
     </item>
     <item>
       <title>The WNH Initiative: Idea &amp; Vision</title>
-      <link>https://0rayn.github.io/WhyNot/posts/the-wnh-initiative/</link>
+      <link>http://localhost:1313/WhyNot/posts/the-wnh-initiative/</link>
       <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/posts/the-wnh-initiative/</guid>
+      <guid>http://localhost:1313/WhyNot/posts/the-wnh-initiative/</guid>
       <description>&lt;h2 id=&#34;i--what-is-the-wnh-initiative&#34;&gt;I – What is the WNH Initiative?&lt;/h2&gt;&#xA;&lt;p&gt;The WNH Initiative, short for &amp;ldquo;Why Not Hardware,&amp;rdquo; is driven by the curiosity of its members, their desire to understand the world around them, and their passion for making it a better place by repurposing old hardware into something new. In doing so, it naturally addresses the ongoing e-waste crisis and inspires others to see value in devices that would otherwise be discarded.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Resources: bareMetal - Raspberry Pi 5</title>
-      <link>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</link>
+      <link>http://localhost:1313/WhyNot/posts/resources/raspberrypi5baremetal/</link>
       <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</guid>
+      <guid>http://localhost:1313/WhyNot/posts/resources/raspberrypi5baremetal/</guid>
       <description>&lt;h2 id=&#34;debugging-and-env-setup&#34;&gt;Debugging and Env Setup:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20240524072817/https://macoy.me/blog/programming/RaspberryPi5Debugging&#34;&gt;RaspberryPi5Debugging&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf&#34;&gt;rassbery-pi-debug-probe-datasheet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>TL-MR3020 Hacking</title>
-      <link>https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/</link>
+      <link>http://localhost:1313/WhyNot/posts/tl-mr3020-hacking/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/</guid>
-      <description>&lt;h2 id=&#34;i---whats-the-tl-mr3020&#34;&gt;I - What&amp;rsquo;s the TL-MR3020?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://0rayn.github.io/WhyNot/images/tl-mr3020/router.png&#34; alt=&#34;TL-MR3020 board&#34;&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;a href=&#34;https://openwrt.org/toh/tp-link/tl-mr3020&#34;&gt;TL-MR3020&lt;/a&gt; is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ?&lt;/li&gt;&#xA;&lt;li&gt;It’s based on the &lt;a href=&#34;https://en.cdr.pl/p5484,atheros-ar9331-al3a-system-on-a-chip.html&#34;&gt;Atheros AR9331 SoC&lt;/a&gt;, which includes:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A 400 MHz MIPS processor&lt;/li&gt;&#xA;&lt;li&gt;4 MB flash, 32 MB RAM&lt;/li&gt;&#xA;&lt;li&gt;USB 2.0 host support&#xA;Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ii---whats-openwrt&#34;&gt;II - What&amp;rsquo;s openWrt:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openwrt.org/&#34;&gt;OpenWrt&lt;/a&gt; is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/WhyNot/posts/tl-mr3020-hacking/</guid>
+      <description>&lt;h2 id=&#34;i---whats-the-tl-mr3020&#34;&gt;I - What&amp;rsquo;s the TL-MR3020?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/WhyNot/images/tl-mr3020/router.png&#34; alt=&#34;TL-MR3020 board&#34;&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;a href=&#34;https://openwrt.org/toh/tp-link/tl-mr3020&#34;&gt;TL-MR3020&lt;/a&gt; is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ?&lt;/li&gt;&#xA;&lt;li&gt;It’s based on the &lt;a href=&#34;https://en.cdr.pl/p5484,atheros-ar9331-al3a-system-on-a-chip.html&#34;&gt;Atheros AR9331 SoC&lt;/a&gt;, which includes:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A 400 MHz MIPS processor&lt;/li&gt;&#xA;&lt;li&gt;4 MB flash, 32 MB RAM&lt;/li&gt;&#xA;&lt;li&gt;USB 2.0 host support&#xA;Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ii---whats-openwrt&#34;&gt;II - What&amp;rsquo;s openWrt:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openwrt.org/&#34;&gt;OpenWrt&lt;/a&gt; is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Search</title>
-      <link>https://0rayn.github.io/WhyNot/search/</link>
+      <link>http://localhost:1313/WhyNot/search/</link>
       <pubDate>Mon, 24 Mar 2025 23:00:00 -0300</pubDate>
-      <guid>https://0rayn.github.io/WhyNot/search/</guid>
+      <guid>http://localhost:1313/WhyNot/search/</guid>
       <description>&lt;h1 id=&#34;search&#34;&gt;Search&lt;/h1&gt;&#xA;&lt;p class=&#34;hidden&#34;&gt;It&amp;#39;s necessary to enable Javascript&lt;/p&gt;&#xA;&lt;p class=&#34;search-loading hidden&#34;&gt;Loading...&lt;/p&gt;&#xA;&#xA;&lt;form id=&#34;search-form&#34; class=&#34;search-form&#34; action=&#34;#&#34; method=&#34;post&#34; accept-charset=&#34;UTF-8&#34; role=&#34;search&#34;&gt;&#xA;  &lt;div class=&#34;search-bar&#34;&gt;&#xA;    &lt;label for=&#34;query&#34; class=&#34;hidden&#34;&gt;&lt;/label&gt;&#xA;    &lt;input id=&#34;query&#34; class=&#34;search-text&#34; type=&#34;text&#34; placeholder=&#34;Search...&#34;/&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/form&gt;&#xA;&#xA;&lt;div class=&#34;search-results&#34;&gt;&lt;/div&gt;&#xA;&#xA;&lt;template&gt;&#xA;  &lt;article class=&#34;search-result list-view&#34;&gt;&#xA;    &lt;header&gt;&#xA;      &lt;h2 class=&#34;title&#34;&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&#xA;      &lt;div class=&#34;submitted&#34;&gt;&#xA;        &lt;time class=&#34;created-date&#34;&gt;&lt;/time&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/header&gt;&#xA;    &lt;p class=&#34;content&#34;&gt;&lt;/p&gt;&#xA;  &lt;/article&gt;&#xA;&lt;/template&gt;</description>
     </item>
   </channel>
