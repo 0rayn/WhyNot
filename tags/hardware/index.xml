@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on WhyNot</title>
-    <link>http://localhost:1313/WhyNot/tags/hardware/</link>
+    <link>https://0rayn.github.io/WhyNot/tags/hardware/</link>
     <description>Recent content in Hardware on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 11 Jun 2025 12:11:13 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/WhyNot/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jan 2026 16:28:07 +0100</lastBuildDate>
+    <atom:link href="https://0rayn.github.io/WhyNot/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tl Mr3020 Hacking</title>
-      <link>http://localhost:1313/WhyNot/posts/tl-mr3020-hacking/</link>
-      <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/posts/tl-mr3020-hacking/</guid>
-      <description></description>
+      <title>The WNH Initiative: Idea &amp; Vision</title>
+      <link>https://0rayn.github.io/WhyNot/posts/the-wnh-initiative/</link>
+      <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/the-wnh-initiative/</guid>
+      <description>&lt;h2 id=&#34;i--what-is-the-wnh-initiative&#34;&gt;I – What is the WNH Initiative?&lt;/h2&gt;&#xA;&lt;p&gt;The WNH Initiative, short for &amp;ldquo;Why Not Hardware,&amp;rdquo; is driven by the curiosity of its members, their desire to understand the world around them, and their passion for making it a better place by repurposing old hardware into something new. In doing so, it naturally addresses the ongoing e-waste crisis and inspires others to see value in devices that would otherwise be discarded.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

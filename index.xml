@@ -6,8 +6,29 @@
     <description>Recent content on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 11 Jun 2025 12:11:13 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 16:28:07 +0100</lastBuildDate>
     <atom:link href="https://0rayn.github.io/WhyNot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The 3020 Project</title>
+      <link>https://0rayn.github.io/WhyNot/posts/the-3020-project/</link>
+      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/the-3020-project/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The WNH Initiative: Idea &amp; Vision</title>
+      <link>https://0rayn.github.io/WhyNot/posts/the-wnh-initiative/</link>
+      <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/the-wnh-initiative/</guid>
+      <description>&lt;h2 id=&#34;i--what-is-the-wnh-initiative&#34;&gt;I – What is the WNH Initiative?&lt;/h2&gt;&#xA;&lt;p&gt;The WNH Initiative, short for &amp;ldquo;Why Not Hardware,&amp;rdquo; is driven by the curiosity of its members, their desire to understand the world around them, and their passion for making it a better place by repurposing old hardware into something new. In doing so, it naturally addresses the ongoing e-waste crisis and inspires others to see value in devices that would otherwise be discarded.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Resources: bareMetal - Raspberry Pi 5</title>
+      <link>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</link>
+      <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</guid>
+      <description>&lt;h2 id=&#34;debugging-and-env-setup&#34;&gt;Debugging and Env Setup:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20240524072817/https://macoy.me/blog/programming/RaspberryPi5Debugging&#34;&gt;RaspberryPi5Debugging&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf&#34;&gt;rassbery-pi-debug-probe-datasheet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>TL-MR3020 Hacking</title>
       <link>https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/</link>

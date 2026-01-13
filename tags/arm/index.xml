@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arm on WhyNot</title>
+    <link>https://0rayn.github.io/WhyNot/tags/arm/</link>
+    <description>Recent content in Arm on WhyNot</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 14 Jun 2025 11:30:33 +0100</lastBuildDate>
+    <atom:link href="https://0rayn.github.io/WhyNot/tags/arm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resources: bareMetal - Raspberry Pi 5</title>
+      <link>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</link>
+      <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</guid>
+      <description>&lt;h2 id=&#34;debugging-and-env-setup&#34;&gt;Debugging and Env Setup:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20240524072817/https://macoy.me/blog/programming/RaspberryPi5Debugging&#34;&gt;RaspberryPi5Debugging&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf&#34;&gt;rassbery-pi-debug-probe-datasheet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
