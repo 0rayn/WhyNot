@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TL-MR3020 Hacking | WhyNot</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" /><meta property="og:url" content="https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/">
+  <meta property="og:site_name" content="WhyNot">
+  <meta property="og:title" content="TL-MR3020 Hacking">
+  <meta property="og:description" content="I - What’s the TL-MR3020? The TL-MR3020 is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ? It’s based on the Atheros AR9331 SoC, which includes: A 400 MHz MIPS processor 4 MB flash, 32 MB RAM USB 2.0 host support Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about. II - What’s openWrt: OpenWrt is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-11T12:11:13+01:00">
+    <meta property="article:modified_time" content="2025-06-11T12:11:13+01:00">
+    <meta property="article:tag" content="TL-MR3020">
+    <meta property="article:tag" content="OpenWrt">
+    <meta property="article:tag" content="DIY">
+    <meta property="article:tag" content="EmbeddedLinux">
+    <meta property="article:tag" content="NetworkTools">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TL-MR3020 Hacking">
+  <meta name="twitter:description" content="I - What’s the TL-MR3020? The TL-MR3020 is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ? It’s based on the Atheros AR9331 SoC, which includes: A 400 MHz MIPS processor 4 MB flash, 32 MB RAM USB 2.0 host support Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about. II - What’s openWrt: OpenWrt is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.">
+
+      <link rel="stylesheet" href="/WhyNot/css/root.min.0e732b812b9751962e01a7c4798a1211cd5f8ac8abec7f99793fe306989e459f.css" integrity="sha256-DnMrgSuXUZYuAafEeYoSEc1fisir7H&#43;ZeT/jBpieRZ8=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/WhyNot/css/bundle.min.d95a325399a05b50fe47dcf35b8229b8a2a014fcee5435cfb28204c6ac335fc5.css" integrity="sha256-2VoyU5mgW1D&#43;R9zzW4IpuKKgFPzuVDXPsoIExqwzX8U=" crossorigin="anonymous">
+
+      <script src="/WhyNot/js/bundle.995e4ec99401021e081ec256bee66154ef7f4e5136809432513b2e6d014b4b1d.js" integrity="sha256-mV5OyZQBAh4IHsJWvuZhVO9/TlE2gJQyUTsubQFLSx0=" crossorigin="anonymous"></script><script defer src="/WhyNot/js/search/flexsearch.compact.64594b125f7b78bdf4fa8316955922bbebb1cd6baef3f16654bfca20309f18f8.js" integrity="sha256-ZFlLEl97eL30&#43;oMWlVkiu&#43;uxzWuu8/FmVL/KIDCfGPg="></script>
+<script defer src="/WhyNot/js/search/search.8f530dd8babcb14f15ab7c8981ac96efc4b306094613be2dfff27d77e3557652.js" integrity="sha256-j1MN2Lq8sU8Vq3yJgayW78SzBglGE74t//J9d&#43;NVdlI="></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+</head>
+<body class="notransition">
+  <div id="container">
+    <header id="main-header"><div role="navigation" aria-label="Main">
+  <div class="nav-left">
+    <a href="https://0rayn.github.io/WhyNot/" style="color: inherit;">WhyNot</a>
+  </div>
+  <div class="nav-right">
+    <div style="position:absolute;width:0px;height:0px;">
+      <div id="nav-dropdown-menu" class="hidden" href="#">
+    <div class="nav-item">
+      <a aria-current="true" class="ancestor" href="/WhyNot/posts/"
+      >Posts</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >Features</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >About</a>
+    </div>
+</div>
+    </div>
+    <a id="nav-dropdown-button" href="#"><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+    <div id="nav-menu">
+    <div class="nav-item">
+      <a aria-current="true" class="ancestor" href="/WhyNot/posts/"
+      >Posts</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >Features</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >About</a>
+    </div>
+</div>
+    <a id="theme-switcher" href="#">
+<svg class="light-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<svg class="dark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+  </div>
+</div>
+</header>
+    <div class="flex grow">
+      <div id="main-pane">
+        <main id="main-content"><div class="single-header">
+<ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/WhyNot/">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content='1' />
+    </li>
+    <span>&nbsp»&nbsp</span>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/WhyNot/posts/">
+        <span itemprop="name">Posts</span>
+      </a>
+      <meta itemprop="position" content='2' />
+    </li>
+    <span>&nbsp»&nbsp</span>
+</ol>
+<h1>TL-MR3020 Hacking</h1><time class="dim" datetime="2025-06-11T12:11:13&#43;01:00">June 11, 2025</time><div class="term-container"><div class="tag">
+        <a href="/WhyNot/tags/tl-mr3020/">#TL-MR3020</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/openwrt/">#OpenWrt</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/diy/">#DIY</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/embeddedlinux/">#EmbeddedLinux</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/networktools/">#NetworkTools</a>
+      </div></ol></div>
+  <section class="page-section"><h2 id="i---whats-the-tl-mr3020">I - What&rsquo;s the TL-MR3020?</h2>
+<p><img src="/WhyNot/images/tl-mr3020/router.png" alt="TL-MR3020 board"></p>
+<ul>
+<li>The <a href="https://openwrt.org/toh/tp-link/tl-mr3020">TL-MR3020</a> is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ?</li>
+<li>It’s based on the <a href="https://en.cdr.pl/p5484,atheros-ar9331-al3a-system-on-a-chip.html">Atheros AR9331 SoC</a>, which includes:
+<ul>
+<li>A 400 MHz MIPS processor</li>
+<li>4 MB flash, 32 MB RAM</li>
+<li>USB 2.0 host support
+Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="ii---whats-openwrt">II - What&rsquo;s openWrt:</h2>
+<p><a href="https://openwrt.org/">OpenWrt</a> is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.</p>
+<hr>
+<h2 id="iii---why-hack-this-router">III - Why Hack This Router?</h2>
+<p>First and foremost — why not? But on a serious note, hacking the TL-MR3020 breathes new life into an old piece of hardware and unlocks its full potential.
+Once you’ve got OpenWrt running and serial access set up, you&rsquo;re no longer limited by the stock firmware. On the contrary, you’ll be encouraged to innovate and experiment with your own ideas, services, and projects.
+<img src="/WhyNot/images/tl-mr3020/unlimited-power.gif" alt="TL-MR3020 board"></p>
+<hr>
+<h2 id="iv---building-a-custom-openwrt-image">IV - Building a Custom OpenWrt Image</h2>
+<p>As mentioned earlier, OpenWrt is a Linux distribution tailored for embedded devices. The latest supported version for the TL-MR3020 v1 is 17.01.7 (<a href="https://openwrt.org/toh/views/toh_fwdownload">check hardware support</a>).<br>
+By default, the official OpenWrt image comes with LuCI, the web interface — but it consumes a significant amount of the router&rsquo;s already limited memory.</p>
+<h3 id="-tl-mr3020-with-the-official-openwrt-image">&lt;|&gt; TL-MR3020 With the official openWrt image:</h3>
+<p>Out of the box, the router has only ~140 KB of free space left — not enough to install the packages needed for EXT4 or USB storage support.<br>
+<img src="/WhyNot/images/tl-mr3020/140kb.jpg" alt="TL-MR3020 Without USB"></p>
+<h3 id="-tl-mr3020-with-our-custom-image">&lt;|&gt; TL-MR3020 With our Custom Image:</h3>
+<p>With a custom OpenWrt image, we can mount an external flash drive (e.g., a 64 GB USB) and use it as the main storage for packages and configuration files. This unlocks a ton of possibilities.<br>
+<img src="/WhyNot/images/tl-mr3020/withUSB.jpg" alt="TL-MR3020 with USB"></p>
+<h3 id="-download-the-image-builder">&lt;|&gt; Download The image Builder:</h3>
+<p>openWrt provide an image builder for you to make a custom image with your specific needs in mind (<a href="https://downloads.openwrt.org/releases/17.01.7/targets/ar71xx/generic/lede-imagebuilder-17.01.7-ar71xx-generic.Linux-x86_64.tar.xz">Download</a>)</p>
+<h3 id="-build-the-image">&lt;|&gt; Build the image:</h3>
+<p>Install any necessary dependencies on your system, then run:</p>
+<pre tabindex="0"><code>make image PROFILE=tl-mr3020-v1 PACKAGES=&#34;kmod-usb-core kmod-usb2 kmod-usb-storage kmod-fs-ext4 block-mount kmod-usb-storage-extras libblkid libuuid&#34;
+</code></pre><p>Once the build finishes, the output will be located under:</p>
+<pre tabindex="0"><code>bin/targets/ar71xx/generic
+</code></pre><hr>
+<h2 id="v---flashing-the-openwrt-firmware">V - Flashing the OpenWrt Firmware</h2>
+<h3 id="-first-time-flash">&lt;|&gt; First-Time Flash:</h3>
+<p>If this is your first time installing OpenWrt on the TL-MR3020, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Download the correct firmware</strong><br>
+Use the factory image:<br>
+<code>lede-17.01.7-ar71xx-generic-tl-mr3020-v1-squashfs-factory.bin</code></p>
+</li>
+<li>
+<p><strong>Connect to the router</strong><br>
+Power on the router and connect to its default Wi-Fi network.<br>
+On the back of the router, you’ll find details such as:</p>
+<ul>
+<li>Default SSID</li>
+<li>Default IP (usually <code>192.168.0.1</code> or <code>192.168.1.1</code>)</li>
+<li>Default username/password</li>
+</ul>
+</li>
+<li>
+<p><strong>Access the web interface</strong><br>
+Open a browser and go to the default IP address.<br>
+Login using the default credentials (often <code>admin</code> / <code>admin</code> or blank password).</p>
+</li>
+<li>
+<p><strong>Flash the firmware</strong><br>
+Navigate to:<br>
+<strong>System Tools &gt; Firmware Upgrade</strong><br>
+Upload the <code>.bin</code> file you downloaded earlier.</p>
+</li>
+<li>
+<p><strong>Wait for the router to flash and reboot</strong><br>
+Once the process finishes, the router will reboot into OpenWrt.</p>
+</li>
+<li>
+<p><strong>Next Step: Connect via SSH</strong><br>
+After flashing, you&rsquo;ll want to connect to your router via SSH.<br>
+→ See the <a href="#connecting-to-the-router-via-ssh">Connecting to the Router via SSH</a> section.</p>
+</li>
+</ol>
+<h3 id="-updating-to-a-new-version">&lt;|&gt; Updating to a New Version:</h3>
+<p>If OpenWrt is already installed on your TL-MR3020:</p>
+<ol>
+<li>
+<p><strong>Download the sysupgrade image</strong><br>
+Get this file:<br>
+<code>lede-17.01.7-ar71xx-generic-tl-mr3020-v1-squashfs-sysupgrade.bin</code></p>
+</li>
+<li>
+<p><strong>Connect to the router</strong><br>
+See <a href="#connecting-to-the-router-via-ssh">How to Connect to the Router</a>.</p>
+</li>
+<li>
+<p><strong>Host the firmware on your PC</strong><br>
+Inside the output folder on your host machine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m http.server <span style="color:#ae81ff">8000</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Download the firmware to the router</strong>
+On the router (via SSH), run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget http://&lt;PC_IP&gt;:8000/lede-17.01.7-ar71xx-generic-tl-mr3020-v1-squashfs-sysupgrade.bin -O /tmp/sysupgrade.bin
+</span></span></code></pre></div><p>(don&rsquo;t forget to change &lt;PC_IP&gt; to your host computer IP)</p>
+</li>
+<li>
+<p><strong>Verify the Download</strong>
+Check that the file size on the router matches the file on your PC.</p>
+</li>
+<li>
+<p><strong>Run The Upgrade</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sysupgrade -n /tmp/sysupgrade.bin
+</span></span></code></pre></div></li>
+</ol>
+<hr>
+<h2 id="vi---connecting-to-the-router-via-ssh">VI - Connecting to the Router via SSH</h2>
+<ul>
+<li>Connect your router to your computer using an Ethernet cable.</li>
+<li>SSH into the router using:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -oHostKeyAlgorithms<span style="color:#f92672">=</span>+ssh-rsa -oPubkeyAcceptedKeyTypes<span style="color:#f92672">=</span>+ssh-rsa root@192.168.1.1
+</span></span></code></pre></div><ul>
+<li>The router is usually configured to use 192.168.1.1 as its LAN interface IP.</li>
+<li>We force the use of RSA because the firmware is old and newer SSH clients may disable RSA by default.</li>
+</ul>
+</li>
+<li>Voila! You&rsquo;re in. You can now set an admin password or configure the system however you like.</li>
+</ul>
+<p>/// By now you may think you have everything you need to start all the awesome ideas you have in mind&hellip; But:<br>
+<img src="/WhyNot/images/tl-mr3020/outOfMemory.jpg" alt="WITHOUT USB MEME"><br>
+So, let&rsquo;s make that USB drive work for us!</p>
+<hr>
+<h2 id="vii---preparing-a-usb-drive">VII - Preparing a USB Drive</h2>
+<ul>
+<li>
+<p>Connect your USB drive to your computer.</p>
+</li>
+<li>
+<p><strong>Important:</strong> Before formatting, identify the correct device name for your USB drive to avoid data loss. Run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsblk
+</span></span></code></pre></div><ul>
+<li>Look for your USB drive’s size and device path (e.g., /dev/sda1).</li>
+</ul>
+</li>
+<li>
+<p>Format the USB drive to use the EXT4 filesystem with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkfs.ext4 -O ^has_journal -m <span style="color:#ae81ff">0</span> -L &lt;LABEL_NAME&gt; /dev/sdX1
+</span></span></code></pre></div><ul>
+<li>Replace /dev/sdX1 with the actual device name of your USB partition.</li>
+</ul>
+</li>
+<li>
+<p>Explanation of options:</p>
+<ul>
+<li><em>-O ^has_journal</em>: disables journaling to reduce write wear and improve speed (less resilience to crashes).</li>
+<li><em>-m 0</em>: reserves 0% space for root (normally 5% is reserved on Linux root disks, but not needed here).</li>
+<li><em>-L &lt;LABEL_NAME&gt;</em>: sets a label name for the partition (replace &lt;LABEL_NAME&gt; with your desired label).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="viii---mounting-the-usb-drive-on-the-router">VIII - Mounting the USB Drive on the Router</h2>
+<ol>
+<li>Plug the USB drive into the router.</li>
+<li>check if the device is recognized:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /dev/sda*
+</span></span></code></pre></div>You should see something like <strong>/dev/sda1</strong>.</li>
+<li>Create a mount point:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /mnt/usb
+</span></span></code></pre></div></li>
+<li>Mount the USB drive:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sda1 /mnt/usb
+</span></span></code></pre></div></li>
+<li>Navigate to the mounted directory:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /mnt/usb
+</span></span></code></pre></div></li>
+<li>Voila! You can now read from and write to your USB drive.
+<img src="/WhyNot/images/tl-mr3020/fileUSB.jpg" alt="writing a file into the USB meme"></li>
+</ol>
+<hr>
+<h2 id="ix---making-the-usb-the-new-overlay-storage-expansion-via-overlayfs">IX - Making the USB the New Overlay (Storage Expansion via OverlayFS)</h2>
+<p><img src="/WhyNot/images/tl-mr3020/USB.jpg" alt="EXPANDING USB"><br>
+By default, the router has only a few kilobytes of writable space. Let’s fix that by using a USB drive as the new overlay storage.</p>
+<ol>
+<li>Edit the fstab configuration:
+<ul>
+<li>Open the file /etc/config/fstab and add the following:</li>
+</ul>
+<pre tabindex="0"><code>config mount
+	option target &#39;/overlay&#39;
+	option uuid &#39;XXXXXXXXXX&#39; # use block info to get your usb uuid
+	option fstype &#39;ext4&#39;
+	option options &#39;noatime,nodiratime,data=writeback,barrier=0,commit=60&#39;
+	option enabled &#39;1&#39;
+	option enabled_fsck &#39;1&#39;
+</code></pre><ul>
+<li>Get your USB’s UUID by running:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>block info
+</span></span></code></pre></div></li>
+<li>Copy the current overlay to the USB:
+<pre tabindex="0"><code>mount /dev/sda1 /mnt
+mount_root
+cd /overlay
+tar -cf - . | tar -C /mnt -xvf -
+umount /mnt
+</code></pre><ul>
+<li>This command tars the current overlay contents and extracts them onto the USB drive.
+✅ After reboot, OpenWrt will mount the USB as your overlay partition — giving you way more room for packages and configuration!</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>If something doesn&rsquo;t work, try using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dmesg
+</span></span></code></pre></div><p>this shows the kernel debug messages &ndash; useful for debugging USB or mount issues.</p>
+</blockquote>
+<hr>
+<h3 id="optional-adding-swap-space">(Optional) Adding Swap Space</h3>
+<blockquote>
+<p>⚠️ Backup your files — you may lose data if something goes wrong.</p>
+</blockquote>
+<p>You can add swap space to improve memory usage. Here&rsquo;s how:</p>
+<ol>
+<li>Create a new partition on your flash drive (e.g. 128MB) and set it as a Linux swap partition.</li>
+<li>Then, edit <code>/etc/config/fstab</code> and add the following section:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>config swap
+</span></span><span style="display:flex;"><span>    option device <span style="color:#e6db74">&#39;/dev/sda2&#39;</span>
+</span></span><span style="display:flex;"><span>    option enabled <span style="color:#e6db74">&#39;1&#39;</span>
+</span></span></code></pre></div></li>
+<li>Reboot the router.
+Now you have 128MB of swap — more than enough for most tasks!</li>
+</ol>
+<hr>
+<h2 id="x---setting-up-the-serial-interface">X - Setting Up the Serial Interface</h2>
+<p><img src="/WhyNot/images/tl-mr3020/uart.gif" alt="SERIAL Interface"><br>
+Setting up a serial interface gives you direct access to the router’s boot messages and console — even if the firmware isn’t working correctly.</p>
+<h3 id="-why-use-serial">&lt;|&gt; Why Use Serial?</h3>
+<ul>
+<li><strong>Unbrick</strong> your router if something goes wrong during a firmware flash.</li>
+<li><strong>Debug</strong> kernel boot logs and system errors.</li>
+<li><strong>Access</strong> the system when SSH or LuCI isn&rsquo;t available.</li>
+</ul>
+<h3 id="-identifying-the-serial-pins">&lt;|&gt; Identifying the Serial Pins</h3>
+<p>On the TL-MR3020 v1 board, you&rsquo;ll spot a row of unpopulated holes near the edge — that&rsquo;s your UART/serial interface:
+<img src="/WhyNot/images/tl-mr3020/chip.png" alt="CHIP"></p>
+<table>
+  <thead>
+      <tr>
+          <th>Label</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>VCC</td>
+          <td>3.3V (⚠️ Do NOT connect to USB-TTL VCC)</td>
+      </tr>
+      <tr>
+          <td>TX</td>
+          <td>Transmit</td>
+      </tr>
+      <tr>
+          <td>RX</td>
+          <td>Receive</td>
+      </tr>
+      <tr>
+          <td>GND</td>
+          <td>Ground</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>⚠️ Important: Only connect <strong>TX, RX, and GND</strong>. Do <strong>not</strong> connect VCC.</p>
+</blockquote>
+<blockquote>
+<p>💡 Tip: You can solder some male header pins in there to make future connections easier — or just use jumper cables if you&rsquo;re careful.</p>
+</blockquote>
+<h3 id="-connecting-the-router-to-a-usb-to-ttl-adapter">&lt;|&gt; Connecting the Router to a USB-to-TTL Adapter</h3>
+<ul>
+<li>If you don&rsquo;t have an adapter, check the <a href="#i-have-no-adapter">I Have No Adapter</a> section.</li>
+</ul>
+<ol>
+<li>Connect the adapter to your PC.</li>
+<li>Wire the adapter to the TL-MR3020 board as follows:</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th>USB-TTL Adapter</th>
+          <th>TL-MR3020 Board</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TX</td>
+          <td>RX</td>
+      </tr>
+      <tr>
+          <td>RX</td>
+          <td>TX</td>
+      </tr>
+      <tr>
+          <td>GND</td>
+          <td>GND</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>🔄 TX goes to RX and RX goes to TX.</p>
+</blockquote>
+<h3 id="-using-a-terminal-program">&lt;|&gt; Using a Terminal Program</h3>
+<p>You can use <code>minicom</code>, <code>picocom</code>, or <code>screen</code> to open a serial connection.</p>
+<p>Example with <code>screen</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>screen /dev/ttyUSB0 <span style="color:#ae81ff">115200</span>
+</span></span></code></pre></div><hr>
+<h3 id="i-have-no-adapter">💡I Have No Adapter</h3>
+<p>If you don’t have a USB-to-Serial adapter — no worries! Just make one with what you already have.</p>
+<p>For me, I had:</p>
+<ul>
+<li>An <strong>Arduino Uno</strong></li>
+<li>A <strong>Raspberry Pi Debug Probe</strong></li>
+</ul>
+<hr>
+<h3 id="-method-1-arduino-uno-or-similar">&lt;|&gt; Method 1: Arduino Uno (or similar)</h3>
+<p>Use the onboard USB-to-Serial chip of your Arduino.</p>
+<h4 id="steps">Steps:</h4>
+<ol>
+<li>
+<p><strong>Connect Arduino via USB to PC</strong></p>
+</li>
+<li>
+<p><strong>Wire like this:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Arduino Pin</th>
+          <th>TL-MR3020</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GND</td>
+          <td>GND</td>
+      </tr>
+      <tr>
+          <td>TX (D1)</td>
+          <td>RX</td>
+      </tr>
+      <tr>
+          <td>RX (D0)</td>
+          <td>TX</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>
+<p>Connect RESET to GND on the Arduino.</p>
+</li>
+</ol>
+<blockquote>
+<p>Connecting RESET to GND keeps the Arduino in a permanent reset state, which effectively disables the ATmega chip and allows the USB-to-Serial converter (like the CH340 or ATmega16U2) to communicate directly with the TL-MR3020.</p>
+</blockquote>
+<p><img src="/WhyNot/images/tl-mr3020/serialArduino.jpg" alt="Serial Arduino"></p>
+<h3 id="-method-2-using-the-raspberry-pi-debug-probe">&lt;|&gt; Method 2: Using the Raspberry Pi Debug Probe</h3>
+<p>If you have the <a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html">Pi Debug Probe</a>, just use its UART port.</p>
+<ul>
+<li><strong>Wire like this:</strong>
+<table>
+  <thead>
+      <tr>
+          <th>debug Prob</th>
+          <th>TL-MR3020</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GND</td>
+          <td>GND</td>
+      </tr>
+      <tr>
+          <td>TX</td>
+          <td>RX</td>
+      </tr>
+      <tr>
+          <td>RX</td>
+          <td>TX</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<blockquote>
+<p>⚠️ Make sure your connections use 3.3V logic! The TL-MR3020 is not 5V-tolerant.<br>
+✅ Bonus: The Debug Probe gives great signal stability and has built-in protection.</p>
+</blockquote>
+<p><img src="/WhyNot/images/tl-mr3020/serialDebug.jpg" alt="Serial Debug Prob"></p>
+<h2 id="next-steps-fun-projects-you-can-do">Next Steps: Fun Projects You Can Do</h2>
+<h3 id="1-local-chat-server">1. Local Chat Server</h3>
+<ul>
+<li>Host an IRC server (ngIRCd) on your TL-MR3020 and let friends connect using irssi or weechat.</li>
+<li>Great for:
+<ul>
+<li>LAN parties</li>
+<li>Retro-feeling comms</li>
+<li>secure chat without needing internet</li>
+</ul>
+</li>
+<li>And yep, all running off a tiny router with no internet required.
+<img src="/WhyNot/images/tl-mr3020/chat.jpg" alt="IRC CHAT"></li>
+</ul>
+<h3 id="2-host-a-website-or-dashboard">2. Host a Website (or Dashboard)</h3>
+<ul>
+<li>spin up a tiny local web server using <em><strong>lighttpd</strong></em> or <em><strong>uhttpd</strong></em></li>
+<li>host a personal dashboard, files, notes, or even a retro homepage</li>
+<li>make your own “internet-in-a-box” for offline use</li>
+</ul>
+<h3 id="3-network-toolbox">3. Network Toolbox</h3>
+<ul>
+<li>turn your TL-MR3020 into a Swiss Army knife for networking</li>
+<li>install tools like tcpdump, nmap, or iperf3</li>
+<li>use it to:
+<ul>
+<li>scan and monitor local networks</li>
+<li>test speeds and latency between devices</li>
+<li>debug network issues from anywhere, even without your laptop (you can just ssh from your phone 😉</li>
+</ul>
+</li>
+</ul>
+<h3 id="4--just-go-wild">4.  Just Go Wild</h3>
+<ul>
+<li>You can literally do whatever you want :)</li>
+<li>It&rsquo;s a Linux box — automate stuff, make it blink LEDs, build a weather station, hack together weird networking tools, or just make it do cool nerdy stuff.</li>
+<li>Your tiny router, your rules.<br>
+<img src="/WhyNot/images/tl-mr3020/final.jpg" alt="IRC CHAT"></li>
+</ul>
+</section></main>
+        <footer id="main-footer"><div class="footer">
+  <a href="#">Scroll to Top</a>
+  <div class="footer-copyright">
+    <div class="dim">© 2026 Taha Ed-dafili</div>
+    <div>Made with ❤️ and powered by <a href="https://github.com/math-queiroz/rusty-typewriter" target="_blank">Rusty Typewriter</a> theme for <a href="https://gohugo.io/" target="_blank">Hugo</a></div>
+  </div>
+</div>
+</footer>
+      </div><aside id="side-pane" class="side-sticky"><div class="side-details">
+    <span>1756 words</span>
+    <span>12 - 15 minutes read</span></div><h3>Table Of Contents</h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#i---whats-the-tl-mr3020">I - What&rsquo;s the TL-MR3020?</a></li>
+    <li><a href="#ii---whats-openwrt">II - What&rsquo;s openWrt:</a></li>
+    <li><a href="#iii---why-hack-this-router">III - Why Hack This Router?</a></li>
+    <li><a href="#iv---building-a-custom-openwrt-image">IV - Building a Custom OpenWrt Image</a>
+      <ul>
+        <li><a href="#-tl-mr3020-with-the-official-openwrt-image">&lt;|&gt; TL-MR3020 With the official openWrt image:</a></li>
+        <li><a href="#-tl-mr3020-with-our-custom-image">&lt;|&gt; TL-MR3020 With our Custom Image:</a></li>
+        <li><a href="#-download-the-image-builder">&lt;|&gt; Download The image Builder:</a></li>
+        <li><a href="#-build-the-image">&lt;|&gt; Build the image:</a></li>
+      </ul>
+    </li>
+    <li><a href="#v---flashing-the-openwrt-firmware">V - Flashing the OpenWrt Firmware</a>
+      <ul>
+        <li><a href="#-first-time-flash">&lt;|&gt; First-Time Flash:</a></li>
+        <li><a href="#-updating-to-a-new-version">&lt;|&gt; Updating to a New Version:</a></li>
+      </ul>
+    </li>
+    <li><a href="#vi---connecting-to-the-router-via-ssh">VI - Connecting to the Router via SSH</a></li>
+    <li><a href="#vii---preparing-a-usb-drive">VII - Preparing a USB Drive</a></li>
+    <li><a href="#viii---mounting-the-usb-drive-on-the-router">VIII - Mounting the USB Drive on the Router</a></li>
+    <li><a href="#ix---making-the-usb-the-new-overlay-storage-expansion-via-overlayfs">IX - Making the USB the New Overlay (Storage Expansion via OverlayFS)</a>
+      <ul>
+        <li><a href="#optional-adding-swap-space">(Optional) Adding Swap Space</a></li>
+      </ul>
+    </li>
+    <li><a href="#x---setting-up-the-serial-interface">X - Setting Up the Serial Interface</a>
+      <ul>
+        <li><a href="#-why-use-serial">&lt;|&gt; Why Use Serial?</a></li>
+        <li><a href="#-identifying-the-serial-pins">&lt;|&gt; Identifying the Serial Pins</a></li>
+        <li><a href="#-connecting-the-router-to-a-usb-to-ttl-adapter">&lt;|&gt; Connecting the Router to a USB-to-TTL Adapter</a></li>
+        <li><a href="#-using-a-terminal-program">&lt;|&gt; Using a Terminal Program</a></li>
+        <li><a href="#i-have-no-adapter">💡I Have No Adapter</a></li>
+        <li><a href="#-method-1-arduino-uno-or-similar">&lt;|&gt; Method 1: Arduino Uno (or similar)</a></li>
+        <li><a href="#-method-2-using-the-raspberry-pi-debug-probe">&lt;|&gt; Method 2: Using the Raspberry Pi Debug Probe</a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps-fun-projects-you-can-do">Next Steps: Fun Projects You Can Do</a>
+      <ul>
+        <li><a href="#1-local-chat-server">1. Local Chat Server</a></li>
+        <li><a href="#2-host-a-website-or-dashboard">2. Host a Website (or Dashboard)</a></li>
+        <li><a href="#3-network-toolbox">3. Network Toolbox</a></li>
+        <li><a href="#4--just-go-wild">4.  Just Go Wild</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside></div>
+  </div>
+</body>
+</html>
