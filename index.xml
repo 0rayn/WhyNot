@@ -6,14 +6,14 @@
     <description>Recent content on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 11 Jan 2026 16:28:07 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 13 Jan 2026 16:28:07 +0100</lastBuildDate>
     <atom:link href="https://0rayn.github.io/WhyNot/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The 3020 Project</title>
+      <title>The 3020 Project: a TL-MR3020 Hacking continuation</title>
       <link>https://0rayn.github.io/WhyNot/posts/the-3020-project/</link>
-      <pubDate>Sun, 11 Jan 2026 16:28:07 +0100</pubDate>
+      <pubDate>Tue, 13 Jan 2026 16:28:07 +0100</pubDate>
       <guid>https://0rayn.github.io/WhyNot/posts/the-3020-project/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;i---beyond-the-basics&#34;&gt;I - Beyond the Basics:&lt;/h2&gt;&#xA;&lt;p&gt;In My &lt;a href=&#34;https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/&#34;&gt;Last Post&lt;/a&gt;, we covered the essentials: flashing OpenWrt, setting up serial access, and using a USB drive to give the TL-MR3020 some actual storage breathing room . We successfully turned a travel router into a functional, headless Linux server.&lt;/p&gt;&#xA;&lt;p&gt;But let’s be honest… a &lt;strong&gt;headless server is boring&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I didn&amp;rsquo;t just want a box that blinks in the corner. I wanted a computer. I wanted a display, I wanted to type, and I wanted to interact with the physical world. The problem? The TL-MR3020 has no video output, no sound, and extremely limited GPIO.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The WNH Initiative: Idea &amp; Vision</title>

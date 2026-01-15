@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://0rayn.github.io/WhyNot/tags/cyberdeck/</loc>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
+  </url><url>
     <loc>https://0rayn.github.io/WhyNot/tags/diy/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
-    <loc>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <loc>https://0rayn.github.io/WhyNot/tags/embeddedsytems/</loc>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
-    <loc>https://0rayn.github.io/WhyNot/tags/networktools/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
-  </url><url>
-    <loc>https://0rayn.github.io/WhyNot/tags/openwrt/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <loc>https://0rayn.github.io/WhyNot/tags/hadrwarehacking/</loc>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/tags/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/the-3020-project/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/</loc>
-    <lastmod>2026-01-11T16:28:07+01:00</lastmod>
+    <lastmod>2026-01-13T16:28:07+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/tags/hardware/</loc>
     <lastmod>2026-01-10T16:28:07+01:00</lastmod>
@@ -49,6 +49,15 @@
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/resources/raspberrypi5baremetal/</loc>
     <lastmod>2025-06-14T11:30:33+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</loc>
+    <lastmod>2025-06-11T12:11:13+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/networktools/</loc>
+    <lastmod>2025-06-11T12:11:13+01:00</lastmod>
+  </url><url>
+    <loc>https://0rayn.github.io/WhyNot/tags/openwrt/</loc>
+    <lastmod>2025-06-11T12:11:13+01:00</lastmod>
   </url><url>
     <loc>https://0rayn.github.io/WhyNot/posts/tl-mr3020-hacking/</loc>
     <lastmod>2025-06-11T12:11:13+01:00</lastmod>
