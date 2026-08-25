@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
+<html lang="en-us" dir="ltr">
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
   <meta property="og:site_name" content="WhyNot">
   <meta property="og:title" content="TL-MR3020 Hacking">
   <meta property="og:description" content="I - What’s the TL-MR3020? The TL-MR3020 is a small, portable wireless router made by TP-Link. Originally designed to share a 3G/4G USB modem connection over Wi-Fi, but we want more right ? It’s based on the Atheros AR9331 SoC, which includes: A 400 MHz MIPS processor 4 MB flash, 32 MB RAM USB 2.0 host support Despite its limited specs, the TL-MR3020 is incredibly capable with the right tweaks — and that’s what this post is all about. II - What’s openWrt: OpenWrt is a lightweight Linux distribution designed specifically for embedded devices like routers. Unlike the stock firmware that comes preinstalled on most routers, OpenWrt gives you full control over your device — with a package manager, writable filesystem, and the ability to run your own software.">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-06-11T12:11:13+01:00">
@@ -27,7 +27,7 @@
       <link rel="stylesheet" href="/WhyNot/css/root.min.0e732b812b9751962e01a7c4798a1211cd5f8ac8abec7f99793fe306989e459f.css" integrity="sha256-DnMrgSuXUZYuAafEeYoSEc1fisir7H&#43;ZeT/jBpieRZ8=" crossorigin="anonymous">
       <link rel="stylesheet" href="/WhyNot/css/bundle.min.d95a325399a05b50fe47dcf35b8229b8a2a014fcee5435cfb28204c6ac335fc5.css" integrity="sha256-2VoyU5mgW1D&#43;R9zzW4IpuKKgFPzuVDXPsoIExqwzX8U=" crossorigin="anonymous">
 
-      <script src="/WhyNot/js/bundle.995e4ec99401021e081ec256bee66154ef7f4e5136809432513b2e6d014b4b1d.js" integrity="sha256-mV5OyZQBAh4IHsJWvuZhVO9/TlE2gJQyUTsubQFLSx0=" crossorigin="anonymous"></script><script defer src="/WhyNot/js/search/flexsearch.compact.64594b125f7b78bdf4fa8316955922bbebb1cd6baef3f16654bfca20309f18f8.js" integrity="sha256-ZFlLEl97eL30&#43;oMWlVkiu&#43;uxzWuu8/FmVL/KIDCfGPg="></script>
+      <script src="/WhyNot/js/bundle.a572f65de204e68be432faaae28ee3c07162ba9b0e5d98aa1a47148e31313a4a.js" integrity="sha256-pXL2XeIE5ovkMvqq4o7jwHFiupsOXZiqGkcUjjExOko=" crossorigin="anonymous"></script><script defer src="/WhyNot/js/search/flexsearch.compact.64594b125f7b78bdf4fa8316955922bbebb1cd6baef3f16654bfca20309f18f8.js" integrity="sha256-ZFlLEl97eL30&#43;oMWlVkiu&#43;uxzWuu8/FmVL/KIDCfGPg="></script>
 <script defer src="/WhyNot/js/search/search.8f530dd8babcb14f15ab7c8981ac96efc4b306094613be2dfff27d77e3557652.js" integrity="sha256-j1MN2Lq8sU8Vq3yJgayW78SzBglGE74t//J9d&#43;NVdlI="></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -213,12 +213,12 @@ See <a href="#connecting-to-the-router-via-ssh">How to Connect to the Router</a>
 <li>
 <p><strong>Host the firmware on your PC</strong><br>
 Inside the output folder on your host machine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m http.server <span style="color:#ae81ff">8000</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m http.server <span style="color:#ae81ff">8000</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Download the firmware to the router</strong>
 On the router (via SSH), run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget http://&lt;PC_IP&gt;:8000/lede-17.01.7-ar71xx-generic-tl-mr3020-v1-squashfs-sysupgrade.bin -O /tmp/sysupgrade.bin
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget http://&lt;PC_IP&gt;:8000/lede-17.01.7-ar71xx-generic-tl-mr3020-v1-squashfs-sysupgrade.bin -O /tmp/sysupgrade.bin
 </span></span></code></pre></div><p>(don&rsquo;t forget to change &lt;PC_IP&gt; to your host computer IP)</p>
 </li>
 <li>
@@ -227,7 +227,7 @@ Check that the file size on the router matches the file on your PC.</p>
 </li>
 <li>
 <p><strong>Run The Upgrade</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sysupgrade -n /tmp/sysupgrade.bin
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sysupgrade -n /tmp/sysupgrade.bin
 </span></span></code></pre></div></li>
 </ol>
 <hr>
@@ -235,7 +235,7 @@ Check that the file size on the router matches the file on your PC.</p>
 <ul>
 <li>Connect your router to your computer using an Ethernet cable.</li>
 <li>SSH into the router using:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -oHostKeyAlgorithms<span style="color:#f92672">=</span>+ssh-rsa -oPubkeyAcceptedKeyTypes<span style="color:#f92672">=</span>+ssh-rsa root@192.168.1.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -oHostKeyAlgorithms<span style="color:#f92672">=</span>+ssh-rsa -oPubkeyAcceptedKeyTypes<span style="color:#f92672">=</span>+ssh-rsa root@192.168.1.1
 </span></span></code></pre></div><ul>
 <li>The router is usually configured to use 192.168.1.1 as its LAN interface IP.</li>
 <li>We force the use of RSA because the firmware is old and newer SSH clients may disable RSA by default.</li>
@@ -254,14 +254,14 @@ So, let&rsquo;s make that USB drive work for us!</p>
 </li>
 <li>
 <p><strong>Important:</strong> Before formatting, identify the correct device name for your USB drive to avoid data loss. Run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsblk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsblk
 </span></span></code></pre></div><ul>
 <li>Look for your USB drive’s size and device path (e.g., /dev/sda1).</li>
 </ul>
 </li>
 <li>
 <p>Format the USB drive to use the EXT4 filesystem with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkfs.ext4 -O ^has_journal -m <span style="color:#ae81ff">0</span> -L &lt;LABEL_NAME&gt; /dev/sdX1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkfs.ext4 -O ^has_journal -m <span style="color:#ae81ff">0</span> -L &lt;LABEL_NAME&gt; /dev/sdX1
 </span></span></code></pre></div><ul>
 <li>Replace /dev/sdX1 with the actual device name of your USB partition.</li>
 </ul>
@@ -280,16 +280,16 @@ So, let&rsquo;s make that USB drive work for us!</p>
 <ol>
 <li>Plug the USB drive into the router.</li>
 <li>check if the device is recognized:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /dev/sda*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /dev/sda*
 </span></span></code></pre></div>You should see something like <strong>/dev/sda1</strong>.</li>
 <li>Create a mount point:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /mnt/usb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /mnt/usb
 </span></span></code></pre></div></li>
 <li>Mount the USB drive:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sda1 /mnt/usb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sda1 /mnt/usb
 </span></span></code></pre></div></li>
 <li>Navigate to the mounted directory:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /mnt/usb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /mnt/usb
 </span></span></code></pre></div></li>
 <li>Voila! You can now read from and write to your USB drive.
 <img src="/WhyNot/images/tl-mr3020/fileUSB.jpg" alt="writing a file into the USB meme"></li>
@@ -313,7 +313,7 @@ By default, the router has only a few kilobytes of writable space. Let’s fix t
 </code></pre><ul>
 <li>Get your USB’s UUID by running:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>block info
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>block info
 </span></span></code></pre></div></li>
 <li>Copy the current overlay to the USB:
 <pre tabindex="0"><code>mount /dev/sda1 /mnt
@@ -329,7 +329,7 @@ umount /mnt
 </ol>
 <blockquote>
 <p>If something doesn&rsquo;t work, try using:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dmesg
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dmesg
 </span></span></code></pre></div><p>this shows the kernel debug messages &ndash; useful for debugging USB or mount issues.</p>
 </blockquote>
 <hr>
@@ -341,7 +341,7 @@ umount /mnt
 <ol>
 <li>Create a new partition on your flash drive (e.g. 128MB) and set it as a Linux swap partition.</li>
 <li>Then, edit <code>/etc/config/fstab</code> and add the following section:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>config swap
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>config swap
 </span></span><span style="display:flex;"><span>    option device <span style="color:#e6db74">&#39;/dev/sda2&#39;</span>
 </span></span><span style="display:flex;"><span>    option enabled <span style="color:#e6db74">&#39;1&#39;</span>
 </span></span></code></pre></div></li>
@@ -429,7 +429,7 @@ Setting up a serial interface gives you direct access to the router’s boot mes
 <h3 id="-using-a-terminal-program">&lt;|&gt; Using a Terminal Program</h3>
 <p>You can use <code>minicom</code>, <code>picocom</code>, or <code>screen</code> to open a serial connection.</p>
 <p>Example with <code>screen</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>screen /dev/ttyUSB0 <span style="color:#ae81ff">115200</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>screen /dev/ttyUSB0 <span style="color:#ae81ff">115200</span>
 </span></span></code></pre></div><hr>
 <h3 id="i-have-no-adapter">💡I Have No Adapter</h3>
 <p>If you don’t have a USB-to-Serial adapter — no worries! Just make one with what you already have.</p>

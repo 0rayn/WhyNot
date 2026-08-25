@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>#HardwareHacking on WhyNot</title>
+    <link>https://0rayn.github.io/WhyNot/tags/%23hardwarehacking/</link>
+    <description>Recent content in #HardwareHacking on WhyNot</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 May 2026 18:40:51 +0100</lastBuildDate>
+    <atom:link href="https://0rayn.github.io/WhyNot/tags/%23hardwarehacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Teardown &amp; Pwnage: Hacking a $5 Wi-Fi Repeater</title>
+      <link>https://0rayn.github.io/WhyNot/posts/g-wpr/</link>
+      <pubDate>Mon, 18 May 2026 18:40:51 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/g-wpr/</guid>
+      <description>&lt;h3 id=&#34;i---beyond-the-basics-the-hardware-profile&#34;&gt;I - Beyond the Basics: The Hardware Profile&lt;/h3&gt;&#xA;&lt;p&gt;Well if you follow those blog posts or know me u know I can&amp;rsquo;t resist cheap hardware; old? obsolete? naah this time brand new. I found a generic wall-plug wi-fi repeater for 5$ so of course I had to buy 2&amp;hellip; Why 2? Why Not?&lt;/p&gt;&#xA;&lt;p&gt;Under the hood, it&amp;rsquo;s powered by a MediaTek MT7628KN System-on-Chip (MIPS32 24KEc core at 575 MHz). The system RAM is an 8 MB DDR1 module permanently baked inside the CPU package, and it uses a Macronix MX-12G 4 MB SPI flash chip for non-volatile storage.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

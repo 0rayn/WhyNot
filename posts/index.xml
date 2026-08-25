@@ -5,9 +5,30 @@
     <link>https://0rayn.github.io/WhyNot/posts/</link>
     <description>Recent content in Posts on WhyNot</description>
     <generator>Hugo</generator>
-    <language>en-US</language>
-    <lastBuildDate>Tue, 13 Jan 2026 16:28:07 +0100</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Aug 2026 08:07:47 -0400</lastBuildDate>
     <atom:link href="https://0rayn.github.io/WhyNot/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LKMP Spring 2026</title>
+      <link>https://0rayn.github.io/WhyNot/posts/lkmp-spring-2026/</link>
+      <pubDate>Fri, 21 Aug 2026 08:07:47 -0400</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/lkmp-spring-2026/</guid>
+      <description>&lt;h2 id=&#34;i---the-lkmp-program&#34;&gt;I - The LKMP Program:&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&#x9;We have received 693 applications, 159 people submitted completed&#xA;applications, and you have made it through!&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can&amp;rsquo;t imagine my happiness when I received this email from Shuah Khan, and found out that out of 693 applicants, only 58 of us got accepted, and I was one of them.&lt;/p&gt;&#xA;&lt;p&gt;The Linux Foundation offers many mentorships across various open source projects, to help grow the next batch of OSS contributors and maintainers. One of those programs is the Linux Kernel Mentorship Program (LKMP for short). Not only do you get to work on your favourite OSS project, but you also get mentorship from people whose time, honestly, I wouldn&amp;rsquo;t be able to afford for even an hour.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kernel Debugging</title>
+      <link>https://0rayn.github.io/WhyNot/posts/kernel-debugging/</link>
+      <pubDate>Sat, 08 Aug 2026 15:43:45 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/kernel-debugging/</guid>
+      <description>&lt;!--&#xA;* **1. Introduction: Debugging in the Dark**&#xA; * The pain of bare-metal kernel development: when you have no screen, no OS, and no debugger attached.&#xA; * The goal: establishing a reliable logging and diagnostic pipeline from scratch.&#xA;&#xA;&#xA;* **2. The First Lifeline: Serial Communication Setup**&#xA; * Configuring the UART (Universal Asynchronous Receiver-Transmitter) over I/O ports.&#xA; * Writing the basic driver to stream characters and formatted strings out of the emulator/hardware.&#xA; * Why serial output is the ultimate primitive for early boot and kernel panic reporting.&#xA;&#xA;&#xA;* **3. Anatomy of an x86 Stack Frame**&#xA; * How the CPU manages execution context using `ebp` and `esp`.&#xA; * The calling convention: saving the old base pointer, pushing return addresses, and forming the frame-pointer linked list (illustrated with your diagram).&#xA;&#xA;&#xA;* **4. Walking the Stack: From Panic to Root Cause**&#xA; * Implementing the stack walker: traversing down from the panic handler (`kPanicCore`) through interrupts and handlers all the way to `kmain`.&#xA; * Streaming the trace frame-by-frame over your serial channel.&#xA;&#xA;&#xA;* **5. Bridging Hex to Human: The Compilation Passes**&#xA; * The limitation of raw instruction pointers (`0xC0107E74`) streaming over serial.&#xA; * Designing the dual compilation passes to parse symbols and inject readable names and offsets (e.g., `kPanicCore+0x82/0x9B`).&#xA;&#xA;&#xA;* **6. Case Study: Anatomy of a Voluntary Panic**&#xA; * Breaking down an actual serial log: triggering via `Ctrl+C`, dumping registers (`eax`, `ebp`, `eip`), and reading the final frame trace.&#xA;&#xA;&#xA;* **7. Conclusion &amp; Next Steps**&#xA; * What this unlocks for future kernel development and stability.&#xA; * Future improvements for low-level diagnostics.&#xA;*/&#xA;--&gt;&#xA;&lt;h2 id=&#34;i--debuggin-in-the-dark-intro&#34;&gt;I- Debuggin In The Dark: Intro&lt;/h2&gt;&#xA;&lt;p&gt;Imagine this, your favourite bootloader just passed control to your kernel, a brand new kernel, just like a new born baby, can&amp;rsquo;t do much. heck at least&#xA;the baby can cry, but for your kernel you have nothing, no drivers means no vga, no text and no sound of course. So how would you know if anything went wrong&#xA;and what exactly went wrong ?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Teardown &amp; Pwnage: Hacking a $5 Wi-Fi Repeater</title>
+      <link>https://0rayn.github.io/WhyNot/posts/g-wpr/</link>
+      <pubDate>Mon, 18 May 2026 18:40:51 +0100</pubDate>
+      <guid>https://0rayn.github.io/WhyNot/posts/g-wpr/</guid>
+      <description>&lt;h3 id=&#34;i---beyond-the-basics-the-hardware-profile&#34;&gt;I - Beyond the Basics: The Hardware Profile&lt;/h3&gt;&#xA;&lt;p&gt;Well if you follow those blog posts or know me u know I can&amp;rsquo;t resist cheap hardware; old? obsolete? naah this time brand new. I found a generic wall-plug wi-fi repeater for 5$ so of course I had to buy 2&amp;hellip; Why 2? Why Not?&lt;/p&gt;&#xA;&lt;p&gt;Under the hood, it&amp;rsquo;s powered by a MediaTek MT7628KN System-on-Chip (MIPS32 24KEc core at 575 MHz). The system RAM is an 8 MB DDR1 module permanently baked inside the CPU package, and it uses a Macronix MX-12G 4 MB SPI flash chip for non-volatile storage.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The 3020 Project: a TL-MR3020 Hacking continuation</title>
       <link>https://0rayn.github.io/WhyNot/posts/the-3020-project/</link>

