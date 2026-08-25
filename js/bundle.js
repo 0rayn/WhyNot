@@ -17,29 +17,25 @@
   })();
   (function() {
     "use strict";
-    const getCachedTheme = () => {
-      const theme = document.body.getAttribute("color-scheme");
-      const cachedTheme = localStorage.getItem("color-scheme");
-      if (cachedTheme) {
-        return cachedTheme;
-      } else if (theme !== "dark" || theme !== "light") {
-        let preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        return preferDark ? "dark" : "light";
-      } else {
-        return theme;
+    const DEFAULT_THEME = "dark";
+    const getInitialTheme = () => {
+      const cached = localStorage.getItem("color-scheme");
+      if (cached === "light" || cached === "dark") {
+        return cached;
       }
+      return DEFAULT_THEME;
+    };
+    const applyTheme = (theme) => {
+      document.documentElement.setAttribute("color-scheme", theme);
     };
     const toggle = (state) => state === "light" ? "dark" : "light";
-    const initTheme = (state) => {
-      document.documentElement.setAttribute("color-scheme", toggle(state));
-    };
     const toggleTheme = () => {
-      const state = getCachedTheme();
-      localStorage.setItem("color-scheme", toggle(state));
-      initTheme(toggle(state));
+      const next = toggle(getInitialTheme());
+      localStorage.setItem("color-scheme", next);
+      applyTheme(next);
     };
     window.addEventListener("DOMContentLoaded", () => {
-      initTheme(getCachedTheme());
+      applyTheme(getInitialTheme());
       requestAnimationFrame(() => document.body.classList.remove("notransition"));
       const switcher = document.getElementById("theme-switcher");
       switcher.addEventListener("click", (e) => {
