@@ -2,129 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on WhyNot</title>
-    <link>http://localhost:1313/WhyNot/tags/</link>
+    <link>https://0rayn.github.io/WhyNot/tags/</link>
     <description>Recent content in Tags on WhyNot</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 May 2026 18:40:51 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rayn.github.io/WhyNot/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>#EmbeddedSystems</title>
-      <link>http://localhost:1313/WhyNot/tags/%23embeddedsystems/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/%23embeddedsystems/</link>
       <pubDate>Mon, 18 May 2026 18:40:51 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/%23embeddedsystems/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/%23embeddedsystems/</guid>
       <description></description>
     </item>
     <item>
       <title>#HardwareHacking</title>
-      <link>http://localhost:1313/WhyNot/tags/%23hardwarehacking/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/%23hardwarehacking/</link>
       <pubDate>Mon, 18 May 2026 18:40:51 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/%23hardwarehacking/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/%23hardwarehacking/</guid>
       <description></description>
     </item>
     <item>
       <title>#MIPS</title>
-      <link>http://localhost:1313/WhyNot/tags/%23mips/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/%23mips/</link>
       <pubDate>Mon, 18 May 2026 18:40:51 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/%23mips/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/%23mips/</guid>
       <description></description>
     </item>
     <item>
       <title>#ReverseEngineering</title>
-      <link>http://localhost:1313/WhyNot/tags/%23reverseengineering/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/%23reverseengineering/</link>
       <pubDate>Mon, 18 May 2026 18:40:51 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/%23reverseengineering/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/%23reverseengineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Cyberdeck</title>
-      <link>http://localhost:1313/WhyNot/tags/cyberdeck/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/cyberdeck/</link>
       <pubDate>Tue, 13 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/cyberdeck/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/cyberdeck/</guid>
       <description></description>
     </item>
     <item>
       <title>DIY</title>
-      <link>http://localhost:1313/WhyNot/tags/diy/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/diy/</link>
       <pubDate>Tue, 13 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/diy/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/diy/</guid>
       <description></description>
     </item>
     <item>
       <title>EmbeddedSytems</title>
-      <link>http://localhost:1313/WhyNot/tags/embeddedsytems/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/embeddedsytems/</link>
       <pubDate>Tue, 13 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/embeddedsytems/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/embeddedsytems/</guid>
       <description></description>
     </item>
     <item>
       <title>HadrwareHacking</title>
-      <link>http://localhost:1313/WhyNot/tags/hadrwarehacking/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/hadrwarehacking/</link>
       <pubDate>Tue, 13 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/hadrwarehacking/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/hadrwarehacking/</guid>
       <description></description>
     </item>
     <item>
       <title>TL-MR3020</title>
-      <link>http://localhost:1313/WhyNot/tags/tl-mr3020/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</link>
       <pubDate>Tue, 13 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/tl-mr3020/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/tl-mr3020/</guid>
       <description></description>
     </item>
     <item>
       <title>Hardware</title>
-      <link>http://localhost:1313/WhyNot/tags/hardware/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/hardware/</link>
       <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/hardware/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/hardware/</guid>
       <description></description>
     </item>
     <item>
       <title>Repurposing</title>
-      <link>http://localhost:1313/WhyNot/tags/repurposing/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/repurposing/</link>
       <pubDate>Sat, 10 Jan 2026 16:28:07 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/repurposing/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/repurposing/</guid>
       <description></description>
     </item>
     <item>
       <title>Arm</title>
-      <link>http://localhost:1313/WhyNot/tags/arm/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/arm/</link>
       <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/arm/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/arm/</guid>
       <description></description>
     </item>
     <item>
       <title>Docs</title>
-      <link>http://localhost:1313/WhyNot/tags/docs/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/docs/</link>
       <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/docs/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/docs/</guid>
       <description></description>
     </item>
     <item>
       <title>Resources</title>
-      <link>http://localhost:1313/WhyNot/tags/resources/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/resources/</link>
       <pubDate>Sat, 14 Jun 2025 11:30:33 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/resources/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/resources/</guid>
       <description></description>
     </item>
     <item>
       <title>EmbeddedLinux</title>
-      <link>http://localhost:1313/WhyNot/tags/embeddedlinux/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/embeddedlinux/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/embeddedlinux/</guid>
       <description></description>
     </item>
     <item>
       <title>NetworkTools</title>
-      <link>http://localhost:1313/WhyNot/tags/networktools/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/networktools/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/networktools/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/networktools/</guid>
       <description></description>
     </item>
     <item>
       <title>OpenWrt</title>
-      <link>http://localhost:1313/WhyNot/tags/openwrt/</link>
+      <link>https://0rayn.github.io/WhyNot/tags/openwrt/</link>
       <pubDate>Wed, 11 Jun 2025 12:11:13 +0100</pubDate>
-      <guid>http://localhost:1313/WhyNot/tags/openwrt/</guid>
+      <guid>https://0rayn.github.io/WhyNot/tags/openwrt/</guid>
       <description></description>
     </item>
   </channel>
