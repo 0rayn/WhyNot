@@ -13,7 +13,7 @@
       <link>https://0rayn.github.io/WhyNot/posts/lkmp-spring-2026/</link>
       <pubDate>Fri, 21 Aug 2026 08:07:47 -0400</pubDate>
       <guid>https://0rayn.github.io/WhyNot/posts/lkmp-spring-2026/</guid>
-      <description>&lt;h2 id=&#34;i---the-lkmp-program&#34;&gt;I - The LKMP Program:&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&#x9;We have received 693 applications, 159 people submitted completed&#xA;applications, and you have made it through!&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can&amp;rsquo;t imagine my happiness when I received this email from Shuah Khan, and found out that out of 693 applicants, only 58 of us got accepted, and I was one of them.&lt;/p&gt;&#xA;&lt;p&gt;The Linux Foundation offers many mentorships across various open source projects, to help grow the next batch of OSS contributors and maintainers. One of those programs is the Linux Kernel Mentorship Program (LKMP for short). Not only do you get to work on your favourite OSS project, but you also get mentorship from people whose time, honestly, I wouldn&amp;rsquo;t be able to afford for even an hour.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post, I&amp;rsquo;ll walk through how I got into the LKMP program, what the mentorship actually looked like week to week, my first patch (and the bug that came with it), how I found my way into the AD5504 work, and what I picked up from the community along the way.&lt;/p&gt;&#xA;&lt;h2 id=&#34;i---the-lkmp-program&#34;&gt;I - The LKMP Program:&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;We have received 693 applications, 159 people submitted completed applications, and you have made it through!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kernel Debugging</title>
