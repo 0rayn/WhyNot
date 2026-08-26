@@ -212,6 +212,12 @@
 .search-result {
   border-top: 1px var(--dim-color) solid;
 }
+
+.author-byline {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin: .3rem 0;
+}
 /* main and native elements rules */
 
 html[color-scheme^='dark'] .dark-icon,
